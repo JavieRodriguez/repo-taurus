@@ -1,3 +1,3 @@
 class Modalidad < ApplicationRecord
-    has_many :procesos
+    #has_many :procesos
 end
