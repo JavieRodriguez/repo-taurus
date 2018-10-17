@@ -18,7 +18,7 @@ User.create!([{
 
 User.create!([{
     email: "usuario@hotmail.com",
-    name: "usuairo",
+    name: "usuario",
     password: "12345678",
     role: "user"
 }
@@ -50,22 +50,22 @@ Modalidad.create!([{
 
 Etapa.create!([{
     id: 1, 
-    nombre: "Etapa de planeación o preparatoria (Estudios Previos)", 
+    nombre: "ETAPA PREPARATORIA", 
     modalidad_id: 1
 }, 
 {
     id: 2, 
-    nombre: "Etapa Precontractual", 
+    nombre: "ETAPA PRE-CONTRACTUAL", 
     modalidad_id: 1
 },
 {
     id: 3, 
-    nombre: "Etapa Contractual", 
+    nombre: "ETAPA CONTRACTUAL", 
     modalidad_id: 1
 }, 
 {
     id: 4, 
-    nombre: "Etapa Post Contractual", 
+    nombre: "ETAPA POST-CONTRACTUAL", 
     modalidad_id: 1
 }])
 
@@ -94,4 +94,6 @@ Actividad.create!([{
     descripcion: "ANALISIS DE RIESGO Y ESTUDIO DE GARANTÍAS", 
     etapa_id: 1
 }])
+
+
 
