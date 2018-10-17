@@ -5,7 +5,7 @@ class ProcesosController < ApplicationController
   # GET /procesos
   # GET /procesos.json
   def index
-    @procesos = @modalidad.procesos.all
+    @procesos = Proceso.where("modalidad_id = ?", params[:modalidad_id])
   end
 
   # GET /procesos/1
