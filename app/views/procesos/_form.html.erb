@@ -1,0 +1,47 @@
+<%= form_with(model: [@modalidad,@proceso]) do |form| %>
+  <% if @proceso.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@proceso.errors.count, "error") %> prohibited this proceso from being saved:</h2>
+
+      <ul>
+      <% @proceso.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :numero, 'Número' %>
+    <%= form.text_field :numero %>
+  </div>
+
+  <div class="field">
+    <%= form.label :palabraclave, 'Palabra Clave' %>
+    <%= form.text_field :palabraclave %>
+  </div>
+
+  <div class="field">
+    <%= form.label :objeto %>
+    <%= form.text_area :objeto %>
+  </div>
+
+  <div class="field">
+    <%= form.label :presupuesto %>
+    <%= form.text_field :presupuesto %>
+  </div>
+
+  <div class="field">
+    <%= form.label :unidadplazo , 'Unidad ' %>
+    <%= form.text_field :unidadplazo %>
+  </div>
+  
+  <div class="field">
+    <%= form.label :plazo, 'Plazo de ejecución' %>
+    <%= form.text_field :plazo %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

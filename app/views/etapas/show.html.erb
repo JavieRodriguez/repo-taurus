@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <h2><%= @etapa.nombre %></h2>
+</p>
+
+<% @actividades.each do |a| %>
+  <li>
+    <%= link_to a.descripcion , modalidad_proceso_etapa_actividad_path(@modalidad,@proceso,@etapa,a)  %>
+  </li>
+<% end %>
+
+<%= link_to 'Volver la lista de etapas', modalidad_proceso_path(@modalidad,@proceso) %>
+ 

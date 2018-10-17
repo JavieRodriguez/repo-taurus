@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  numero: 
+  palabraclave: MyString
+  objeto: MyText
+  modalidad: one
+
+two:
+  numero: 
+  palabraclave: MyString
+  objeto: MyText
+  modalidad: two
