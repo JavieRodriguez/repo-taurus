@@ -16,6 +16,14 @@ User.create!([{
 }
 ])
 
+User.create!([{
+    email: "usuario@hotmail.com",
+    name: "usuairo",
+    password: "12345678",
+    role: "user"
+}
+])
+
 Modalidad.create!([{
     id: 1, 
     nombre: "MINIMA CUANTÍA"
@@ -82,7 +90,7 @@ Actividad.create!([{
     etapa_id: 1
 },
 {
-    id: 4, 
+    id: 5, 
     descripcion: "ANALISIS DE RIESGO Y ESTUDIO DE GARANTÍAS", 
     etapa_id: 1
 }])
