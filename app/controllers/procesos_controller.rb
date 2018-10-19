@@ -17,7 +17,7 @@ class ProcesosController < ApplicationController
 
   # GET /procesos/new
   def new
-    @proceso = @modalidad.procesos.new
+    @proceso = Proceso.new
   end
 
   # GET /procesos/1/edit
@@ -33,8 +33,8 @@ class ProcesosController < ApplicationController
 
     respond_to do |format|
       if @proceso.save
-        format.html { redirect_to [@proceso.modalidad, @proceso], notice: 'Proceso fue correctamente creado.' }
-        format.json { render :show, status: :created, location: [@proceso.modalidad, @proceso] }
+        format.html { redirect_to [@modalidad, @proceso], notice: 'Proceso fue correctamente creado.' }
+        format.json { render :show, status: :created, location: [@modalidad, @proceso] }
       else
         format.html { render :new }
         format.json { render json: @proceso.errors, status: :unprocessable_entity }

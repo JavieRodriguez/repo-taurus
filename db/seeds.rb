@@ -95,3 +95,29 @@ Actividad.create!([{
     etapa_id: 1
 }])
 
+Tipocontrato.create!([{
+    id:   1, 
+    tipo: "Compraventa"
+}, 
+{
+    id: 2, 
+    tipo: "Suministro"
+},
+{
+    id: 3, 
+    tipo: "Prestación  de Servicios"
+},
+{
+    id: 4, 
+    tipo: "Obra"
+},
+{
+    id: 5, 
+    tipo: "Consultoría"
+},
+{
+    id: 6, 
+    tipo: "Arrendamiento"
+}])
+
+
