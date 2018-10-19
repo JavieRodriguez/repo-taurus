@@ -18,7 +18,7 @@ User.create!([{
 
 User.create!([{
     email: "usuario@hotmail.com",
-    name: "usuairo",
+    name: "usuario",
     password: "12345678",
     role: "user"
 }
@@ -50,22 +50,22 @@ Modalidad.create!([{
 
 Etapa.create!([{
     id: 1, 
-    nombre: "Etapa de planeación o preparatoria (Estudios Previos)", 
+    nombre: "ETAPA PREPARATORIA", 
     modalidad_id: 1
 }, 
 {
     id: 2, 
-    nombre: "Etapa Precontractual", 
+    nombre: "ETAPA PRE-CONTRACTUAL", 
     modalidad_id: 1
 },
 {
     id: 3, 
-    nombre: "Etapa Contractual", 
+    nombre: "ETAPA CONTRACTUAL", 
     modalidad_id: 1
 }, 
 {
     id: 4, 
-    nombre: "Etapa Post Contractual", 
+    nombre: "ETAPA POST-CONTRACTUAL", 
     modalidad_id: 1
 }])
 
@@ -95,6 +95,7 @@ Actividad.create!([{
     etapa_id: 1
 }])
 
+<<<<<<< HEAD
 Tipocontrato.create!([{
     id:   1, 
     tipo: "Compraventa"
@@ -119,5 +120,7 @@ Tipocontrato.create!([{
     id: 6, 
     tipo: "Arrendamiento"
 }])
+=======
+>>>>>>> 4e210407b16a60e57ce2abfce628cb2b3567cf0b
 
 
