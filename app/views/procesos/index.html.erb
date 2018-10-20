@@ -1,12 +1,14 @@
 <p id="notice"><%= notice %></p>
 <h1>Seleccione el proceso.</h1>
-<%= link_to 'Registre un nuevo proceso', new_modalidad_proceso_path %> 
-<table>
+<%= link_to 'Registre un nuevo proceso', new_modalidad_proceso_path, class: 'btn btn-primary' %> 
+<table class="table">
   <thead>
     <tr>
       <th>Numero</th>
       <th>Palabra Clave</th>
       <th>Objeto</th>
+      <th>Plazo</th>
+      <th>Tipo</th>
       <th>Acciones</th>
       <th colspan="6"></th>
     </tr>
@@ -17,12 +19,14 @@
         <td><%= proceso.numero %></td>
         <td><%= proceso.palabraclave %></td>
         <td><%= proceso.objeto %></td>
+        <td><%= proceso.plazo %></td>
+        <td><%= proceso.tipocontrato.tipo %></td>
         <!-- /posts/:post_id/comments/:id -->
-        <td><%= link_to 'Mostrar', [proceso.modalidad, proceso] %></td>
+        <td><%= link_to 'Mostrar', [proceso.modalidad, proceso] %>
         <!-- /posts/:post_id/comments/:id/edit -->
-        <td><%= link_to 'Editar', edit_modalidad_proceso_path(proceso.modalidad,proceso) %></td>
+        <%= link_to 'Editar', edit_modalidad_proceso_path(proceso.modalidad,proceso) %>
         <!-- /posts/:post_id/comments/:id -->
-        <td><%= link_to 'Eliminar', [proceso.modalidad, proceso], method: :delete, data: { confirm: 'Esta seguro?' } %></td>
+        <%= link_to 'Eliminar', [proceso.modalidad, proceso], method: :delete, data: { confirm: 'Esta seguro?' } %></td>
       </tr>
     <% end %>
   </tbody>

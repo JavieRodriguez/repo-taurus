@@ -1,3 +1,7 @@
+<div class="container">
+  
+
+
 <%= form_with(model: [@modalidad,@proceso]) do |form| %>
   <% if @proceso.errors.any? %>
     <div id="error_explanation">
@@ -11,42 +15,44 @@
     </div>
   <% end %>
 
-  <div class="field">
+  <div class="form-group">
     <%= form.label :numero, 'Número' %>
-    <%= form.text_field :numero %>
+    <%= form.text_field :numero, class: 'form-control' %>
   </div>
 
-  <div class="field">
+  <div class="form-group">
     <%= form.label :palabraclave, 'Palabra Clave' %>
-    <%= form.text_field :palabraclave %>
+    <%= form.text_field :palabraclave, class: 'form-control' %>
   </div>
 
-  <div class="field">
+  <div class="form-group">
     <%= form.label :objeto %>
-    <%= form.text_area :objeto %>
+    <%= form.text_area :objeto, class: 'form-control' %>
   </div>
 
-  <div class="field">
+  <div class="form-group">
     <%= form.label :presupuesto %>
-    <%= form.text_field :presupuesto %>
+    <%= form.text_field :presupuesto, class: 'form-control' %>
   </div>
 
-  <div class="field">
+  <div class="form-group">
     <%= form.label :unidadplazo , 'Unidad ' %>
-    <%= form.text_field :unidadplazo %>
+    <%= form.text_field :unidadplazo, class: 'form-control' %>
   </div>
   
-  <div class="field">
+  <div class="form-group">
     <%= form.label :plazo, 'Plazo de ejecución' %>
-    <%= form.text_field :plazo %>
+    <%= form.text_field :plazo, class: 'form-control' %>
   </div>
 
-  <div class="field">
+  <div class="form-group">
     <%= form.label :tipocontrato_id, 'Tipo de Contrato' %>
-   <%= collection_select(:proceso,:tipocontrato_id,@tipocontratos,:id,:tipo) %>
+   <%= collection_select(:proceso,:tipocontrato_id,@tipocontratos,:id,:tipo,{},{:class=>'form-control'}) %>
   </div>
 
   <div class="actions">
     <%= form.submit %>
   </div>
 <% end %>
+
+</div>
