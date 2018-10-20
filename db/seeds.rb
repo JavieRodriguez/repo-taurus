@@ -95,7 +95,6 @@ Actividad.create!([{
     etapa_id: 1
 }])
 
-<<<<<<< HEAD
 Tipocontrato.create!([{
     id:   1, 
     tipo: "Compraventa"
@@ -120,7 +119,5 @@ Tipocontrato.create!([{
     id: 6, 
     tipo: "Arrendamiento"
 }])
-=======
->>>>>>> 4e210407b16a60e57ce2abfce628cb2b3567cf0b
 
 

@@ -78,6 +78,6 @@ class ProcesosController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def proceso_params
-      params.require(:proceso).permit(:numero, :palabraclave, :objeto, :modalidad_id)
+      params.require(:proceso).permit(:numero, :palabraclave, :objeto, :presupuesto, :unidadplazo, :plazo, :tipocontrato, :modalidad_id)
     end
 end
