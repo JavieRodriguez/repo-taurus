@@ -23,6 +23,7 @@ class ProcesosController < ApplicationController
 
   # GET /procesos/1/edit
   def edit
+    @tipocontratos = Tipocontrato.all
   end
 
   # POST /procesos
@@ -51,7 +52,7 @@ class ProcesosController < ApplicationController
   def update
     respond_to do |format|
       if @proceso.update(proceso_params)
-        format.html { redirect_to @proceso, notice: 'El proceso fue correctamente actualizado.' }
+        format.html { redirect_to [@modalidad, @proceso], notice: 'El proceso fue correctamente actualizado.' }
         format.json { render :show, status: :ok, location: @proceso }
       else
         format.html { render :edit }
