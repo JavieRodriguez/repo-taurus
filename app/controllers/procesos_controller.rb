@@ -18,6 +18,7 @@ class ProcesosController < ApplicationController
   # GET /procesos/new
   def new
     @proceso = Proceso.new
+    @tipocontratos = Tipocontrato.all
   end
 
   # GET /procesos/1/edit
@@ -30,6 +31,9 @@ class ProcesosController < ApplicationController
     @proceso = Proceso.new(proceso_params)
     @proceso.user = current_user
     @proceso.modalidad = @modalidad
+    @tipocontrato = Tipocontrato.find(proceso_params[:tipocontrato_id])
+    @proceso.tipocontrato = @tipocontrato
+
 
     respond_to do |format|
       if @proceso.save
@@ -78,6 +82,6 @@ class ProcesosController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def proceso_params
-      params.require(:proceso).permit(:numero, :palabraclave, :objeto, :presupuesto, :unidadplazo, :plazo, :tipocontrato, :modalidad_id)
+      params.require(:proceso).permit(:numero, :palabraclave, :objeto, :presupuesto, :unidadplazo, :plazo, :tipocontrato_id, :modalidad_id)
     end
 end

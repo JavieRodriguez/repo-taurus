@@ -42,8 +42,8 @@
   </div>
 
   <div class="field">
-    <%= form.label :tipocontrato, 'Tipo de Contrato' %>
-    <%= form.text_field :tipocontrato %>
+    <%= form.label :tipocontrato_id, 'Tipo de Contrato' %>
+   <%= collection_select(:proceso,:tipocontrato_id,@tipocontratos,:id,:tipo) %>
   </div>
 
   <div class="actions">
