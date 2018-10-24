@@ -37,7 +37,7 @@ public class ModalidadController {
     }
 
     @RequestMapping(value = "/modalidad", method = RequestMethod.POST)
-    public ResponseEntity<Modalidad> saveToDo(@Valid @RequestBody Modalidad modalidad) {
+    public ResponseEntity<Modalidad> saveToDo(@RequestBody Modalidad modalidad) {
         return new ResponseEntity<>(modalidadService.saveModalidad(modalidad), HttpStatus.OK);
     }
 
