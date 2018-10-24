@@ -17,6 +17,6 @@ import org.springframework.web.bind.annotation.RestController;
 public class HomeController {
     @RequestMapping("/")
     public String home(){
-        return "Welcome to HomeController";
+        return "Welcome to HomeController consulte /modalidad";
     }
 }
