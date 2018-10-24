@@ -22,6 +22,7 @@ public class Modalidad implements Serializable{
     @GeneratedValue
     @Column(name="id")
     private long id;
+    @NotNull
     @Column(name="nombre")
     private String nombre;
     @Column(name="descripcion")
