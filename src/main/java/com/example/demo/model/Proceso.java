@@ -10,6 +10,7 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.validation.constraints.NotNull;
 
 /**
@@ -17,30 +18,34 @@ import javax.validation.constraints.NotNull;
  * @author mac
  */
 @Entity
-public class Modalidad implements Serializable{
-    
+public class Proceso implements Serializable {
+
     @Id
     @GeneratedValue
-    @Column(name="id")
+    @Column(name = "id")
     private long id;
     @NotNull
-    @Column(name="nombre")
+    @Column(name = "nombre")
     private String nombre;
-    @Column(name="descripcion")
+    @Column(name = "descripcion")
     private String descripcion;
+    @ManyToOne
+    private Modalidad modalidad;
 
-    public Modalidad() {
+    public Proceso() {
     }
     
-    public Modalidad(String nombre, String descripcion) {
+    public Proceso(String nombre, String descripcion, Modalidad modalidad) {
         this.nombre = nombre;
         this.descripcion = descripcion;
+        this.modalidad = modalidad;
     }
-
-    public Modalidad(long id, String nombre, String descripcion) {
+        
+    public Proceso(long id, String nombre, String descripcion, Modalidad modalidad) {
         this.id = id;
         this.nombre = nombre;
         this.descripcion = descripcion;
+        this.modalidad = modalidad;
     }
 
     public long getId() {
@@ -66,5 +71,15 @@ public class Modalidad implements Serializable{
     public void setDescripcion(String descripcion) {
         this.descripcion = descripcion;
     }
+
+    public Modalidad getModalidad() {
+        return modalidad;
+    }
+
+    public void setModalidad(Modalidad modalidad) {
+        this.modalidad = modalidad;
+    }
     
+    
+
 }
