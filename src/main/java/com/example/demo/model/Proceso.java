@@ -5,6 +5,12 @@
  */
 package com.example.demo.model;
 
+import com.example.demo.repository.ModalidadRepository;
+import com.example.demo.service.CompaniaService;
+import com.example.demo.service.FormadepagoService;
+import com.example.demo.service.GarantiaService;
+import com.example.demo.service.ModalidadService;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import java.io.Serializable;
 import java.util.Date;
 import javax.persistence.Column;
@@ -12,6 +18,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import javax.persistence.Temporal;
 import javax.validation.constraints.NotNull;
 
 /**
@@ -37,11 +44,13 @@ public class Proceso implements Serializable {
     @Column(name = "plazoejecucion")
     private int plazoejecucion;
     @Column(name = "fechainicio")
+    @Temporal(javax.persistence.TemporalType.DATE)
     private Date fechainicio;
 
     @ManyToOne
     private Compania compania;
     @ManyToOne
+    @JsonIgnore
     private Modalidad modalidad;
     @ManyToOne
     private Formadepago formadepago;
@@ -51,6 +60,31 @@ public class Proceso implements Serializable {
 
     public Proceso() {
     }
+    
+    
+    public Proceso(String numero, 
+            String palabraclave, 
+            String objeto,
+            long compania,
+            long modalidad, 
+            long formadepago, 
+            long garantia) {
+        CompaniaService companiaService = new CompaniaService();
+        Compania companiaaux = companiaService.getCompaniaById(compania).get();
+        ModalidadService modalidadService = new ModalidadService();
+        Modalidad modalidadaux = modalidadService.getModalidadById(modalidad).get();
+        FormadepagoService formadepagoService = new FormadepagoService();
+        Formadepago formadepagoaux = formadepagoService.getFormadepagoById(formadepago).get();
+        GarantiaService garantiaService = new GarantiaService();
+        Garantia garantiaaux = garantiaService.getGarantiaById(garantia).get();
+        this.numero = numero;
+        this.palabraclave = palabraclave;
+        this.objeto = objeto;
+        this.compania = companiaaux;
+        this.modalidad = modalidadaux;
+        this.formadepago = formadepagoaux;
+        this.garantia = garantiaaux;
+    }    
     
     public Proceso(String numero, String palabraclave, String objeto, Modalidad modalidad) {
         this.numero = numero;

@@ -1,7 +1,13 @@
 package com.example.demo;
 
+import com.example.demo.model.Compania;
+import com.example.demo.model.Formadepago;
+import com.example.demo.model.Garantia;
 import com.example.demo.model.Modalidad;
 import com.example.demo.model.Proceso;
+import com.example.demo.repository.CompaniaRepository;
+import com.example.demo.repository.FormadepagoRepository;
+import com.example.demo.repository.GarantiaRepository;
 import com.example.demo.repository.ModalidadRepository;
 import com.example.demo.repository.ProcesoRepository;
 import java.util.ArrayList;
@@ -16,9 +22,6 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter
 
 @SpringBootApplication
 public class ContratacionApplication {
-
-    private List<Modalidad> listaModalidad;
-    private List<Proceso> listaProceso;
 
     public static void main(String[] args) {
         SpringApplication.run(ContratacionApplication.class, args);
@@ -35,11 +38,21 @@ public class ContratacionApplication {
     }
 
     @Bean
-    public CommandLineRunner setup(ModalidadRepository modalidadRepository, ProcesoRepository procesoRepository) {
-        return (arg) -> {
-            listaModalidad = new ArrayList<>();
-            listaProceso = new ArrayList<>();
-      
+    public CommandLineRunner setup(ModalidadRepository modalidadRepository, 
+            ProcesoRepository procesoRepository,
+            CompaniaRepository companiaRepository,
+            FormadepagoRepository formadepagoRepository,
+            GarantiaRepository garantiaRepository) {
+        return (arg) -> {   
+            Compania compania = new Compania("compania001", "Boyaca");
+            companiaRepository.save(compania);
+            
+            Formadepago formadepago = new Formadepago("Formadepago", "desc formadepago");
+            formadepagoRepository.save(formadepago);
+            
+            Garantia garantia = new Garantia("garantia", "desc garantia");
+            garantiaRepository.save(garantia);            
+            
             ArrayList<Modalidad> listamodalidad = new ArrayList<>();
             listamodalidad.add(new Modalidad("MINIMA CUANTÍA", "Descripcion modalidad MINIMA CUANTÍA"));
             listamodalidad.add(new Modalidad("CONTRATACIÓN DIRECTA", "Descripcion modalidad CONTRATACIÓN DIRECTA"));
@@ -51,13 +64,19 @@ public class ContratacionApplication {
             for (int i = 0; i < listamodalidad.size(); i++) {
                 Modalidad modalidad = listamodalidad.get(i);
                 modalidadRepository.save(modalidad);
+                //List<Proceso> listaproceso = new ArrayList<>();
                 int contProceso = 1;
-                for (int j = 1; j <= 5; j++) {
+                for (int j = 1; j <= 2; j++) {
                     Proceso proceso = new Proceso(String.valueOf(contProceso), "Proceso " + contProceso, "Descripcion proceso " + contProceso, modalidad);
-                    listaProceso.add(proceso);
+                    proceso.setCompania(compania);
+                    proceso.setFormadepago(formadepago);
+                    proceso.setGarantia(garantia);
+                    //listaproceso.add(proceso);
                     procesoRepository.save(proceso);
                     contProceso++;
                 }
+                //modalidad.setProceso(listaproceso);
+                
             }
             
         };

@@ -7,7 +7,6 @@ package com.example.demo.controller;
 
 import com.example.demo.model.Modalidad;
 import com.example.demo.service.ModalidadService;
-import com.mysql.jdbc.Connection;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
@@ -18,30 +17,22 @@ import java.util.List;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletResponse;
-import javax.sql.DataSource;
-import net.sf.jasperreports.engine.JRDataSource;
-import net.sf.jasperreports.engine.JREmptyDataSource;
 import net.sf.jasperreports.engine.JRException;
 import net.sf.jasperreports.engine.JasperExportManager;
 import net.sf.jasperreports.engine.JasperFillManager;
-import static net.sf.jasperreports.engine.JasperFillManager.fillReport;
 import net.sf.jasperreports.engine.JasperPrint;
 import net.sf.jasperreports.engine.JasperReport;
 import net.sf.jasperreports.engine.util.JRLoader;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
-import org.springframework.context.annotation.Bean;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseBuilder;
-import org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseType;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.servlet.ModelAndView;
 
 /**
  *
@@ -60,7 +51,7 @@ public class ModalidadController {
     @ResponseBody
     public void getRpt1(HttpServletResponse response) throws JRException, IOException, SQLException, ClassNotFoundException {
         InputStream jasperStream = this.getClass().getResourceAsStream("/reports/ejemplo.jasper");
-        Map<String, Object> params = new HashMap<String, Object>();
+        Map<String, Object> params = new HashMap<>();
         params.put("STRSQL", "SELECT id, nombre, descripcion FROM MODALIDAD");
         JasperReport jasperReport = (JasperReport) JRLoader.loadObject(jasperStream);
         //JRDataSource jRDataSource = new JRDataSource();
