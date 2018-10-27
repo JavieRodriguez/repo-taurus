@@ -6,12 +6,14 @@
 package com.example.demo.model;
 
 import java.io.Serializable;
-import java.util.List;
 import java.util.Set;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
@@ -22,7 +24,7 @@ import javax.validation.constraints.NotNull;
  * @author mac
  */
 @Entity
-public class Usuario implements Serializable{
+public class Rol implements Serializable{
     
     @Id
     @GeneratedValue
@@ -31,28 +33,20 @@ public class Usuario implements Serializable{
     @NotNull
     @Column(name="nombre")
     private String nombre;
-    @Column(name="correo")
-    private String correo;
-    @Column(name="contrasena")
-    private String contrasena;
     
     @ManyToOne
     private Compania compania;
-    @ManyToMany(mappedBy = "usuarios")
-    private Set<Rol> rol;
-    
-    public Usuario() {
-    }
-    
-    public Usuario(String nombre, String correo) {
-        this.nombre = nombre;
-        this.correo = correo;
-    }
+    @ManyToMany(cascade = CascadeType.ALL)
+    @JoinTable
+    private Set<Usuario> usuario;
 
-    public Usuario(long id, String nombre, String correo) {
+    public Rol() {
+    }
+    
+
+    public Rol(long id, String nombre) {
         this.id = id;
         this.nombre = nombre;
-        this.correo = correo;
     }
 
     public long getId() {
@@ -71,22 +65,6 @@ public class Usuario implements Serializable{
         this.nombre = nombre;
     }
 
-    public String getCorreo() {
-        return correo;
-    }
-
-    public void setCorreo(String correo) {
-        this.correo = correo;
-    }
-
-    public String getContrasena() {
-        return contrasena;
-    }
-
-    public void setContrasena(String contrasena) {
-        this.contrasena = contrasena;
-    }
-
     public Compania getCompania() {
         return compania;
     }
@@ -95,14 +73,14 @@ public class Usuario implements Serializable{
         this.compania = compania;
     }
 
-    public Set<Rol> getRoles() {
-        return rol;
+    public Set<Usuario> getUsuarios() {
+        return usuario;
     }
 
-    public void setRoles(Set<Rol> rol) {
-        this.rol = rol;
+    public void setUsuarios(Set<Usuario> usuario) {
+        this.usuario = usuario;
     }
-    
+
     
     
 }
