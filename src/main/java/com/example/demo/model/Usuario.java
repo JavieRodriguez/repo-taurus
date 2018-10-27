@@ -38,7 +38,7 @@ public class Usuario implements Serializable{
     
     @ManyToOne
     private Compania compania;
-    @ManyToMany(mappedBy = "usuarios")
+    @ManyToMany(mappedBy = "usuario")
     private Set<Rol> rol;
     
     public Usuario() {
