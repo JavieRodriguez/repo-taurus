@@ -51,6 +51,20 @@
 			<groupId>mysql</groupId>
 			<artifactId>mysql-connector-java</artifactId>
 		</dependency>
+                
+                <!-- Jasper -->
+                <dependency>
+                    <groupId>net.sf.jasperreports</groupId>
+                    <artifactId>jasperreports</artifactId>
+                    <version>6.1.0</version>
+                </dependency>
+  
+                <!-- AppContext -->                
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-context-support</artifactId>
+		</dependency>      
+                            
 
 	</dependencies>
 
