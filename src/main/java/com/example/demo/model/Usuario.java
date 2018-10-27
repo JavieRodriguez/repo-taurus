@@ -10,6 +10,8 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.validation.constraints.NotNull;
 
 /**
@@ -30,6 +32,9 @@ public class Usuario implements Serializable{
     private String correo;
     @Column(name="contrasena")
     private String contrasena;
+    
+    @ManyToOne
+    private Compania compania;
 
     public Usuario() {
     }
@@ -76,5 +81,15 @@ public class Usuario implements Serializable{
     public void setContrasena(String contrasena) {
         this.contrasena = contrasena;
     }
+
+    public Compania getCompania() {
+        return compania;
+    }
+
+    public void setCompania(Compania compania) {
+        this.compania = compania;
+    }
+    
+    
     
 }
