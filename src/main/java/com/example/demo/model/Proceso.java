@@ -17,6 +17,7 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Temporal;
 import javax.validation.constraints.NotNull;
@@ -51,6 +52,7 @@ public class Proceso implements Serializable {
     private Compania compania;
     @ManyToOne
     @JsonIgnore
+    @JoinColumn(name="modalidad_id",referencedColumnName="id")
     private Modalidad modalidad;
     @ManyToOne
     private Formadepago formadepago;
@@ -65,10 +67,14 @@ public class Proceso implements Serializable {
     public Proceso(String numero, 
             String palabraclave, 
             String objeto,
+            double presupuestooficial,
+            int plazoejecucion,
+            Date fechainicio,
             long compania,
             long modalidad, 
             long formadepago, 
             long garantia) {
+        System.out.println("////////////////////////////////////");
         CompaniaService companiaService = new CompaniaService();
         Compania companiaaux = companiaService.getCompaniaById(compania).get();
         ModalidadService modalidadService = new ModalidadService();
@@ -91,6 +97,7 @@ public class Proceso implements Serializable {
         this.palabraclave = palabraclave;
         this.objeto = objeto;
         this.modalidad = modalidad;
+             System.out.println("***************************");
     }
         
     public Proceso(long id, String numero, String palabraclave, String objeto, Modalidad modalidad) {
