@@ -35,6 +35,8 @@ public class Usuario implements Serializable{
     private String correo;
     @Column(name="contrasena")
     private String contrasena;
+    @Column(name="estado")
+    private String estado;
     
     @ManyToOne
     private Compania compania;
@@ -95,14 +97,20 @@ public class Usuario implements Serializable{
         this.compania = compania;
     }
 
-    public Set<Rol> getRoles() {
+    public String getEstado() {
+        return estado;
+    }
+
+    public void setEstado(String estado) {
+        this.estado = estado;
+    }
+
+    public Set<Rol> getRol() {
         return rol;
     }
 
-    public void setRoles(Set<Rol> rol) {
+    public void setRol(Set<Rol> rol) {
         this.rol = rol;
     }
-    
-    
     
 }

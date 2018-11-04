@@ -13,5 +13,6 @@ import org.springframework.data.jpa.repository.JpaRepository;
  *
  * @author mac
  */
-public interface UsuarioRepository extends JpaRepository<Usuario, Long>{
+public interface LoginRepository extends JpaRepository<Usuario, Long>{
+    public abstract Usuario findByCorreo(String correo);
 }
