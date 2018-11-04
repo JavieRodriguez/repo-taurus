@@ -5,7 +5,7 @@
  */
 package com.example.demo.controller;
 
-import com.example.demo.model.Modalidad;
+import com.example.demo.entity.Modalidad;
 import com.example.demo.service.ModalidadService;
 import java.io.IOException;
 import java.io.InputStream;

@@ -5,7 +5,7 @@
  */
 package com.example.demo.service;
 
-import com.example.demo.model.Compania;
+import com.example.demo.entity.Compania;
 import com.example.demo.repository.CompaniaRepository;
 import java.util.List;
 import java.util.Optional;

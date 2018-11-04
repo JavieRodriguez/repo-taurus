@@ -5,7 +5,7 @@
  */
 package com.example.demo.service;
 
-import com.example.demo.model.Garantia;
+import com.example.demo.entity.Garantia;
 import com.example.demo.repository.GarantiaRepository;
 import java.util.List;
 import java.util.Optional;

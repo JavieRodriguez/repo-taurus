@@ -3,13 +3,18 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.example.demo.model;
+package com.example.demo.entity;
 
 import java.io.Serializable;
+import java.util.Set;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.validation.constraints.NotNull;
 
@@ -18,37 +23,29 @@ import javax.validation.constraints.NotNull;
  * @author mac
  */
 @Entity
-public class Parametro implements Serializable{
+public class Rol implements Serializable{
     
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name="id")
     private long id;
-    @Column(name="codigo")
-    private String codigo;
-    @Column(name="subcodigo")
-    private String subcodigo;
     @NotNull
     @Column(name="nombre")
     private String nombre;
-    @Column(name="descripcion")
-    private String descripcion;
     
     @ManyToOne
     private Compania compania;
+    @ManyToMany(cascade = CascadeType.ALL)
+    @JoinTable
+    private Set<Usuario> usuario;
 
-    public Parametro() {
+    public Rol() {
     }
     
-    public Parametro(String nombre, String descripcion) {
-        this.nombre = nombre;
-        this.descripcion = descripcion;
-    }
 
-    public Parametro(long id, String nombre, String descripcion) {
+    public Rol(long id, String nombre) {
         this.id = id;
         this.nombre = nombre;
-        this.descripcion = descripcion;
     }
 
     public long getId() {
@@ -59,38 +56,12 @@ public class Parametro implements Serializable{
         this.id = id;
     }
 
-    public String getCodigo() {
-        return codigo;
-    }
-
-    public void setCodigo(String codigo) {
-        this.codigo = codigo;
-    }
-
-    public String getSubcodigo() {
-        return subcodigo;
-    }
-
-    public void setSubcodigo(String subcodigo) {
-        this.subcodigo = subcodigo;
-    }
-    
-    
-
     public String getNombre() {
         return nombre;
     }
 
     public void setNombre(String nombre) {
         this.nombre = nombre;
-    }
-
-    public String getDescripcion() {
-        return descripcion;
-    }
-
-    public void setDescripcion(String descripcion) {
-        this.descripcion = descripcion;
     }
 
     public Compania getCompania() {
@@ -100,7 +71,15 @@ public class Parametro implements Serializable{
     public void setCompania(Compania compania) {
         this.compania = compania;
     }
-    
+
+    public Set<Usuario> getUsuarios() {
+        return usuario;
+    }
+
+    public void setUsuarios(Set<Usuario> usuario) {
+        this.usuario = usuario;
+    }
+
     
     
 }

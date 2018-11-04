@@ -5,7 +5,7 @@
  */
 package com.example.demo.service;
 
-import com.example.demo.model.Modalidad;
+import com.example.demo.entity.Modalidad;
 import com.example.demo.repository.ModalidadRepository;
 import java.util.List;
 import java.util.Optional;

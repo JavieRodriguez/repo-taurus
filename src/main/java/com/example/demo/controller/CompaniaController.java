@@ -5,7 +5,7 @@
  */
 package com.example.demo.controller;
 
-import com.example.demo.model.Compania;
+import com.example.demo.entity.Compania;
 import com.example.demo.service.CompaniaService;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;

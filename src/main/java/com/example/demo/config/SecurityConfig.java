@@ -41,12 +41,14 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
         .authorizeRequests()
             .antMatchers("/",
                     "/login",
+                    "/cerrar-sesion",
                     "/modalidad*", 
                     "/home",
                     "/proceso",
                     "/compania",
                     "/garantia",
-                    "/usuario").permitAll()
+                    "/usuario",
+                    "/username").permitAll()
             .antMatchers(HttpMethod.POST, "/login").permitAll()
             .antMatchers("/css/*", "/imgs/*").permitAll()
                 

@@ -5,7 +5,7 @@
  */
 package com.example.demo.service;
 
-import com.example.demo.model.Formadepago;
+import com.example.demo.entity.Formadepago;
 import com.example.demo.repository.FormadepagoRepository;
 import java.util.List;
 import java.util.Optional;

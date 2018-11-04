@@ -6,7 +6,7 @@ import static com.example.demo.config.Constants.SUPER_SECRET_KEY;
 import static com.example.demo.config.Constants.TOKEN_BEARER_PREFIX;
 import static com.example.demo.config.Constants.TOKEN_EXPIRATION_TIME;
 import com.example.demo.model.Credenciales;
-import com.example.demo.model.Usuario;
+import com.example.demo.entity.Usuario;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -59,5 +59,8 @@ public class JWTAuthenticationFilter extends UsernamePasswordAuthenticationFilte
 				.setExpiration(new Date(System.currentTimeMillis() + TOKEN_EXPIRATION_TIME))
 				.signWith(SignatureAlgorithm.HS512, SUPER_SECRET_KEY).compact();
 		response.addHeader(HEADER_AUTHORIZACION_KEY, TOKEN_BEARER_PREFIX + " " + token);
+                response.addHeader("access-control-expose-headers", "Authorization");
+                //response.getOutputStream().print("" + ((User)auth.getPrincipal()).getUsername());
+                        
 	}
 }

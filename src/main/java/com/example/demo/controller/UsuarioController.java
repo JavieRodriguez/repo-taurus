@@ -5,13 +5,21 @@
  */
 package com.example.demo.controller;
 
-import com.example.demo.model.Usuario;
+import com.example.demo.entity.Usuario;
 import com.example.demo.service.UsuarioService;
+import java.security.Principal;
 import java.util.List;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.User;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.web.authentication.logout.SecurityContextLogoutHandler;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -30,6 +38,23 @@ public class UsuarioController {
     private UsuarioService usuarioService;
     @Autowired
     private BCryptPasswordEncoder bCryptPasswordEncoder;
+    
+    @RequestMapping(value = "/username", method = RequestMethod.GET)
+    public ResponseEntity<Usuario> currentUserNameSimple(HttpServletRequest request) {
+        Principal principal = request.getUserPrincipal();
+        return new ResponseEntity<>(usuarioService.getUsuariobyNombre(principal.getName()).get(), HttpStatus.OK);
+        
+    }
+    
+    @RequestMapping(value="/cerrar-sesion", method = RequestMethod.GET)
+    public String logoutPage (HttpServletRequest request, HttpServletResponse response) {
+        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+        System.out.println("auth " + auth);
+        if (auth != null){    
+            new SecurityContextLogoutHandler().logout(request, response, auth);
+        }
+        return "";//You can redirect wherever you want, but generally it's a good practice to show login screen again.
+    }    
     
     @RequestMapping(value = "/usuario", method = RequestMethod.GET)
     public ResponseEntity<List<Usuario>> getAllUsuario() {

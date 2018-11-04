@@ -5,7 +5,7 @@
  */
 package com.example.demo.repository;
 
-import com.example.demo.model.Parametro;
+import com.example.demo.entity.Parametro;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 /**

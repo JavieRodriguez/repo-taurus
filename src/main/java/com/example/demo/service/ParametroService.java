@@ -5,7 +5,7 @@
  */
 package com.example.demo.service;
 
-import com.example.demo.model.Parametro;
+import com.example.demo.entity.Parametro;
 import com.example.demo.repository.ParametroRepository;
 import java.util.List;
 import java.util.Optional;

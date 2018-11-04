@@ -5,7 +5,7 @@
  */
 package com.example.demo.service;
 
-import com.example.demo.model.Proceso;
+import com.example.demo.entity.Proceso;
 import com.example.demo.repository.ProcesoRepository;
 import java.util.List;
 import java.util.Optional;

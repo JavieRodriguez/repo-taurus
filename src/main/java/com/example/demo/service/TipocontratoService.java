@@ -5,7 +5,7 @@
  */
 package com.example.demo.service;
 
-import com.example.demo.model.Tipocontrato;
+import com.example.demo.entity.Tipocontrato;
 import com.example.demo.repository.TipocontratoRepository;
 import java.util.List;
 import java.util.Optional;

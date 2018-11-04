@@ -3,12 +3,13 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.example.demo.model;
+package com.example.demo.entity;
 
 import java.io.Serializable;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.validation.constraints.NotNull;
 
@@ -17,10 +18,10 @@ import javax.validation.constraints.NotNull;
  * @author mac
  */
 @Entity
-public class Garantia implements Serializable{
+public class Tipocontrato implements Serializable{
     
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name="id")
     private long id;
     @NotNull
@@ -29,15 +30,15 @@ public class Garantia implements Serializable{
     @Column(name="descripcion")
     private String descripcion;
 
-    public Garantia() {
+    public Tipocontrato() {
     }
     
-    public Garantia(String nombre, String descripcion) {
+    public Tipocontrato(String nombre, String descripcion) {
         this.nombre = nombre;
         this.descripcion = descripcion;
     }
 
-    public Garantia(long id, String nombre, String descripcion) {
+    public Tipocontrato(long id, String nombre, String descripcion) {
         this.id = id;
         this.nombre = nombre;
         this.descripcion = descripcion;

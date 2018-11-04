@@ -3,20 +3,14 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.example.demo.model;
+package com.example.demo.entity;
 
 import java.io.Serializable;
-import java.util.Set;
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
-import javax.persistence.ManyToMany;
-import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
 import javax.validation.constraints.NotNull;
 
 /**
@@ -24,29 +18,30 @@ import javax.validation.constraints.NotNull;
  * @author mac
  */
 @Entity
-public class Rol implements Serializable{
+public class Formadepago implements Serializable{
     
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name="id")
     private long id;
     @NotNull
     @Column(name="nombre")
     private String nombre;
-    
-    @ManyToOne
-    private Compania compania;
-    @ManyToMany(cascade = CascadeType.ALL)
-    @JoinTable
-    private Set<Usuario> usuario;
+    @Column(name="descripcion")
+    private String descripcion;
 
-    public Rol() {
+    public Formadepago() {
     }
     
+    public Formadepago(String nombre, String descripcion) {
+        this.nombre = nombre;
+        this.descripcion = descripcion;
+    }
 
-    public Rol(long id, String nombre) {
+    public Formadepago(long id, String nombre, String descripcion) {
         this.id = id;
         this.nombre = nombre;
+        this.descripcion = descripcion;
     }
 
     public long getId() {
@@ -65,22 +60,12 @@ public class Rol implements Serializable{
         this.nombre = nombre;
     }
 
-    public Compania getCompania() {
-        return compania;
+    public String getDescripcion() {
+        return descripcion;
     }
 
-    public void setCompania(Compania compania) {
-        this.compania = compania;
+    public void setDescripcion(String descripcion) {
+        this.descripcion = descripcion;
     }
-
-    public Set<Usuario> getUsuarios() {
-        return usuario;
-    }
-
-    public void setUsuarios(Set<Usuario> usuario) {
-        this.usuario = usuario;
-    }
-
-    
     
 }

@@ -3,9 +3,8 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.example.demo.model;
+package com.example.demo.entity;
 
-import com.example.demo.repository.ModalidadRepository;
 import com.example.demo.service.CompaniaService;
 import com.example.demo.service.FormadepagoService;
 import com.example.demo.service.GarantiaService;
@@ -16,6 +15,7 @@ import java.util.Date;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
@@ -30,7 +30,7 @@ import javax.validation.constraints.NotNull;
 public class Proceso implements Serializable {
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private long id;
     @NotNull

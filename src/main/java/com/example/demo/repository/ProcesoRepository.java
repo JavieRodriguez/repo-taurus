@@ -5,7 +5,7 @@
  */
 package com.example.demo.repository;
 
-import com.example.demo.model.Proceso;
+import com.example.demo.entity.Proceso;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 /**

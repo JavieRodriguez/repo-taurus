@@ -5,7 +5,7 @@
  */
 package com.example.demo.controller;
 
-import com.example.demo.model.Parametro;
+import com.example.demo.entity.Parametro;
 import com.example.demo.service.ParametroService;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;

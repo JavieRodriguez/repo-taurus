@@ -1,10 +1,10 @@
 package com.example.demo;
 
-import com.example.demo.model.Compania;
-import com.example.demo.model.Formadepago;
-import com.example.demo.model.Garantia;
-import com.example.demo.model.Modalidad;
-import com.example.demo.model.Proceso;
+import com.example.demo.entity.Compania;
+import com.example.demo.entity.Formadepago;
+import com.example.demo.entity.Garantia;
+import com.example.demo.entity.Modalidad;
+import com.example.demo.entity.Proceso;
 import com.example.demo.repository.CompaniaRepository;
 import com.example.demo.repository.FormadepagoRepository;
 import com.example.demo.repository.GarantiaRepository;

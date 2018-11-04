@@ -5,7 +5,7 @@
  */
 package com.example.demo.controller;
 
-import com.example.demo.model.Proceso;
+import com.example.demo.entity.Proceso;
 import com.example.demo.service.ProcesoService;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;

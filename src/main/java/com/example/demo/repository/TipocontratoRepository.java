@@ -5,7 +5,7 @@
  */
 package com.example.demo.repository;
 
-import com.example.demo.model.Tipocontrato;
+import com.example.demo.entity.Tipocontrato;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 /**

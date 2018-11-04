@@ -5,7 +5,7 @@
  */
 package com.example.demo.controller;
 
-import com.example.demo.model.Formadepago;
+import com.example.demo.entity.Formadepago;
 import com.example.demo.service.FormadepagoService;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
