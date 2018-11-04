@@ -49,7 +49,7 @@ public class UsuarioController {
     @RequestMapping(value="/cerrar-sesion", method = RequestMethod.GET)
     public String logoutPage (HttpServletRequest request, HttpServletResponse response) {
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-        System.out.println("auth " + auth);
+        //System.out.println("auth " + auth);
         if (auth != null){    
             new SecurityContextLogoutHandler().logout(request, response, auth);
         }
