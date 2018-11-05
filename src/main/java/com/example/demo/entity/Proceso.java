@@ -9,7 +9,10 @@ import com.example.demo.service.CompaniaService;
 import com.example.demo.service.FormadepagoService;
 import com.example.demo.service.GarantiaService;
 import com.example.demo.service.ModalidadService;
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.JsonIdentityReference;
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import java.io.Serializable;
 import java.util.Date;
 import javax.persistence.Column;
@@ -49,10 +52,14 @@ public class Proceso implements Serializable {
     private Date fechainicio;
 
     @ManyToOne
+    //@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "id")
+    //@JsonIdentityReference(alwaysAsId = true)    
     private Compania compania;
     @ManyToOne
-    @JsonIgnore
-    @JoinColumn(name="modalidad_id",referencedColumnName="id")
+    //@JsonIgnore
+    //@JoinColumn(name="modalidad_id",referencedColumnName="id")
+    @JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "id")
+    @JsonIdentityReference(alwaysAsId = true)        
     private Modalidad modalidad;
     @ManyToOne
     private Formadepago formadepago;
@@ -97,8 +104,17 @@ public class Proceso implements Serializable {
         this.palabraclave = palabraclave;
         this.objeto = objeto;
         this.modalidad = modalidad;
-             System.out.println("***************************");
+        //System.out.println("***************************");
     }
+    
+    public Proceso(Compania compania, String numero, String palabraclave, String objeto, Modalidad modalidad) {
+        this.compania = compania;
+        this.numero = numero;
+        this.palabraclave = palabraclave;
+        this.objeto = objeto;
+        this.modalidad = modalidad;
+        //System.out.println("***************************");
+    }    
         
     public Proceso(long id, String numero, String palabraclave, String objeto, Modalidad modalidad) {
         this.id = id;

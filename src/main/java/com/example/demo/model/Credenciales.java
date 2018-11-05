@@ -5,6 +5,8 @@
  */
 package com.example.demo.model;
 
+import com.example.demo.entity.Compania;
+
 /**
  *
  * @author mac
@@ -12,13 +14,15 @@ package com.example.demo.model;
 
 public class Credenciales {
     private String username;
+    private Compania compania;
     private String password;
 
     public Credenciales() {
     }
 
-    public Credenciales(String username, String password) {
+    public Credenciales(String username, Compania compania, String password) {
         this.username = username;
+        this.compania = compania;
         this.password = password;
     }
 
@@ -30,6 +34,14 @@ public class Credenciales {
             this.username = username;
     }
 
+    public Compania getCompania() {
+        return compania;
+    }
+
+    public void setCompania(Compania compania) {
+        this.compania = compania;
+    } 
+    
     public String getPassword() {
             return password;
     }

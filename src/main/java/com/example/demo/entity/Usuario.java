@@ -14,6 +14,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
+import javax.persistence.Table;
+import javax.persistence.UniqueConstraint;
 import javax.validation.constraints.NotNull;
 
 /**
@@ -21,6 +23,10 @@ import javax.validation.constraints.NotNull;
  * @author mac
  */
 @Entity
+@Table(
+   name = "usuario", 
+   uniqueConstraints = {@UniqueConstraint(columnNames = {"correo"})}
+)
 public class Usuario implements Serializable{
     
     @Id

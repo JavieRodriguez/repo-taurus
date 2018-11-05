@@ -40,7 +40,7 @@ public class ProcesoController {
     public ResponseEntity<Proceso> saveToDo(@RequestBody Proceso proceso) {
         return new ResponseEntity<>(procesoService.saveProceso(proceso), HttpStatus.OK);
     }
-
+    
     @RequestMapping(value = "/proceso", method = RequestMethod.PUT)
     public ResponseEntity<Proceso> updateToDo(@RequestBody Proceso proceso) {
         return new ResponseEntity<>(procesoService.saveProceso(proceso), HttpStatus.OK);

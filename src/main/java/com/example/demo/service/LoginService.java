@@ -1,9 +1,7 @@
 package com.example.demo.service;
 
-import com.example.demo.model.Credenciales;
 import com.example.demo.entity.Usuario;
 import com.example.demo.repository.LoginRepository;
-import com.example.demo.repository.UsuarioRepository;
 import static java.util.Collections.emptyList;
 
 import org.springframework.security.core.userdetails.User;

@@ -41,6 +41,8 @@ public class UsuarioController {
     
     @RequestMapping(value = "/username", method = RequestMethod.GET)
     public ResponseEntity<Usuario> currentUserNameSimple(HttpServletRequest request) {
+        System.out.println("request: " + request.getUserPrincipal());
+        System.out.println("request2: " + request.getAttribute("nombre"));
         Principal principal = request.getUserPrincipal();
         return new ResponseEntity<>(usuarioService.getUsuariobyNombre(principal.getName()).get(), HttpStatus.OK);
         
