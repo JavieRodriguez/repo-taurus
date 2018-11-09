@@ -10,7 +10,9 @@ import com.example.demo.repository.FormadepagoRepository;
 import com.example.demo.repository.GarantiaRepository;
 import com.example.demo.repository.ModalidadRepository;
 import com.example.demo.repository.ProcesoRepository;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import org.exolab.castor.types.Date;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -29,8 +31,10 @@ public class ContratacionApplication {
             CompaniaRepository companiaRepository,
             FormadepagoRepository formadepagoRepository,
             GarantiaRepository garantiaRepository) {
-        return (arg) -> {   
-            Compania compania = new Compania("compania001", "Boyaca");
+        return (String[] arg) -> {   
+            
+            
+            Compania compania = new Compania("001", "compania001", "Tunja", "Boyacá");
             companiaRepository.save(compania);
             
             Formadepago formadepago = new Formadepago("Formadepago", "desc formadepago");
@@ -53,7 +57,8 @@ public class ContratacionApplication {
                 //List<Proceso> listaproceso = new ArrayList<>();
                 int contProceso = 1;
                 for (int j = 1; j <= 2; j++) {
-                    Proceso proceso = new Proceso(String.valueOf(contProceso), "Proceso " + contProceso, "Descripcion proceso " + contProceso, modalidad);
+                    Proceso proceso = new Proceso(compania, String.valueOf(contProceso), "Proceso " + contProceso,
+                            "objeto", 3, 9000000, new SimpleDateFormat("dd/mm/yyyy").parse("01/01/2019"), modalidad);
                     proceso.setCompania(compania);
                     proceso.setFormadepago(formadepago);
                     proceso.setGarantia(garantia);

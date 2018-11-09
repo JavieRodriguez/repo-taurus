@@ -41,4 +41,5 @@ public class UsuarioService {
     public void removeUsuario(Usuario usuario){
         usuarioRepository.delete(usuario);
     }
+
 }

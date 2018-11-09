@@ -26,6 +26,7 @@ public class Tipocontrato implements Serializable{
     private long id;
     @NotNull
     @Column(name="nombre")
+    @NotNull
     private String nombre;
     @Column(name="descripcion")
     private String descripcion;

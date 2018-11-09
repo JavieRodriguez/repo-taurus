@@ -5,6 +5,7 @@ import static com.example.demo.config.Constants.ISSUER_INFO;
 import static com.example.demo.config.Constants.SUPER_SECRET_KEY;
 import static com.example.demo.config.Constants.TOKEN_BEARER_PREFIX;
 import static com.example.demo.config.Constants.TOKEN_EXPIRATION_TIME;
+import com.example.demo.entity.Rol;
 import com.example.demo.model.Credenciales;
 import com.example.demo.entity.Usuario;
 
@@ -28,6 +29,14 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
+import javax.websocket.Session;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
 
 public class JWTAuthenticationFilter extends UsernamePasswordAuthenticationFilter {
 
@@ -43,12 +52,27 @@ public class JWTAuthenticationFilter extends UsernamePasswordAuthenticationFilte
 		try {
 			Credenciales credenciales = new ObjectMapper().readValue(request.getInputStream(), Credenciales.class);
 
+                        /*
+                                                        Rol rol = new Rol(1, "ADMINISTRADOR");
+                                Set<Rol> roles = new HashSet<>();                               
+                                roles.add(rol);//.add("ADMINISTRADOR");
+                                credenciales.getCompania();
+                        */
+                                //Authentication authentication = new Authentication
 			return authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(
-					credenciales.getUsername(), credenciales.getPassword(), new ArrayList<>()));
+					credenciales.getUsername(), credenciales.getPassword(), Collections.emptyList()));
 		} catch (IOException e) {
 			throw new RuntimeException(e);
 		}
 	}
+        
+    private List<GrantedAuthority> buildAuthorities(Set<Rol> roles){
+        Set<GrantedAuthority> auths = new HashSet<>();
+        for (Rol rol : roles) {
+            auths.add(new SimpleGrantedAuthority(rol.getNombre()));
+        }
+        return new ArrayList<>(auths);
+    }          
 
 	@Override
 	protected void successfulAuthentication(HttpServletRequest request, HttpServletResponse response, FilterChain chain,
@@ -60,7 +84,15 @@ public class JWTAuthenticationFilter extends UsernamePasswordAuthenticationFilte
 				.signWith(SignatureAlgorithm.HS512, SUPER_SECRET_KEY).compact();
 		response.addHeader(HEADER_AUTHORIZACION_KEY, TOKEN_BEARER_PREFIX + " " + token);
                 response.addHeader("access-control-expose-headers", "Authorization");
-                //response.getOutputStream().print("" + ((User)auth.getPrincipal()).getUsername());
+                /*
+                response.getOutputStream().print("" + ((User)auth.getPrincipal()).getAuthorities());
+                ArrayList authentica = new ArrayList<>(((User)auth.getPrincipal()).getAuthorities());
+                for (int i = 0; i < authentica.size(); i++) {
+                    System.out.println("use atuh " + authentica.get(i).toString());
+                    
+                
+            }
+*/
                         
 	}
 }

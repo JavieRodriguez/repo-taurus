@@ -24,12 +24,16 @@ public class Compania implements Serializable{
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name="id")
     private long id;
+    @NotNull
     @Column(name="nit")
     private String nit;
     @NotNull
     @Column(name="nombre")
+    @NotNull
     private String nombre;
+    @NotNull
     @Column(name="ciudad")
+    @NotNull
     private String ciudad;
     @Column(name="departamento")
     private String departamento;
@@ -37,14 +41,10 @@ public class Compania implements Serializable{
     public Compania() {
     }
     
-    public Compania(String nombre, String departamento) {
+    public Compania(String nit, String nombre, String ciudad, String departamento) {
+        this.nit = nit;
         this.nombre = nombre;
-        this.departamento = departamento;
-    }
-
-    public Compania(long id, String nombre, String departamento) {
-        this.id = id;
-        this.nombre = nombre;
+        this.ciudad = ciudad;
         this.departamento = departamento;
     }
 

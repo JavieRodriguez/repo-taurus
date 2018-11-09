@@ -67,6 +67,11 @@ public class UsuarioController {
     public ResponseEntity<Usuario> getToDoById(@PathVariable("id") long id) {
         return new ResponseEntity<>(usuarioService.getUsuarioById(id).get(), HttpStatus.OK);
     }
+    
+    @RequestMapping(value = "/usuarioporcorreo/{correo}", method = RequestMethod.GET)
+    public ResponseEntity<Usuario> getToDoById(@PathVariable("correo") String correo) {
+        return new ResponseEntity<>(usuarioService.getUsuariobyNombre(correo).get(), HttpStatus.OK);
+    }    
 
     @RequestMapping(value = "/usuario", method = RequestMethod.POST)
     public ResponseEntity<Usuario> saveToDo(@RequestBody Usuario usuario) {

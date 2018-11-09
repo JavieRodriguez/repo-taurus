@@ -6,10 +6,12 @@
 package com.example.demo.config;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpMethod;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
+import org.springframework.security.config.annotation.authentication.configuration.EnableGlobalAuthentication;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
@@ -25,6 +27,7 @@ import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
  */
 @Configuration
 @EnableWebSecurity
+@EnableGlobalAuthentication
 public class SecurityConfig extends WebSecurityConfigurerAdapter{
     
     @Autowired
@@ -39,24 +42,38 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
         .and()
         .csrf().disable()
         .authorizeRequests()
-            .antMatchers("/",
-                    "/login",
+            .antMatchers(
+                    "/",
+                    //"/login",
                     "/cerrar-sesion",
-                    "/modalidad*", 
                     "/home",
-                    "/proceso",
-                    "/compania",
-                    "/garantia",
-                    "/usuario",
-                    "/username",
-                    "/reporte").permitAll()
-            .antMatchers(HttpMethod.POST, "/login").permitAll()
-            .antMatchers("/css/*", "/imgs/*").permitAll()
-                
-           .anyRequest().authenticated().and()
-				.addFilter(new JWTAuthenticationFilter(authenticationManager()))
-				.addFilter(new JWTAuthorizationFilter(authenticationManager()))
-          
+                    "/username"
+                    ,"/usuarioporcorreo*"
+            ).permitAll()
+            .antMatchers(
+                    HttpMethod.POST, "/login").permitAll()
+            .antMatchers(
+                    HttpMethod.GET, 
+                        "/compania").permitAll()                
+            .antMatchers(
+                    "/modalidad*", 
+                    "/compania*",
+                    "/garantia*"//,
+                    //"/usuario"
+            ).hasRole("ADMINISTRADOR")
+            .antMatchers(
+                    "/proceso*", 
+                    "/reporte"
+            ).hasRole("REGISTRADO")                
+            .antMatchers(
+                    "/css/*",
+                    "/imgs/*"
+            ).permitAll()
+           .anyRequest()
+                .authenticated()
+                .and()
+                .addFilter(new JWTAuthenticationFilter(authenticationManager()))
+                .addFilter(new JWTAuthorizationFilter(authenticationManager()))
             ;
         
     }

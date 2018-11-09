@@ -15,6 +15,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
 import javax.persistence.OneToMany;
 import javax.validation.constraints.NotNull;
 
@@ -32,9 +34,12 @@ public class Modalidad implements Serializable{
     @NotNull
     @Column(name="nombre")
     private String nombre;
+    @NotNull
     @Column(name="descripcion")
     private String descripcion;
+    @NotNull
     @OneToMany(mappedBy = "modalidad", cascade = CascadeType.ALL)
+    //@JoinColumn(name = "modalidad_id")
     private final Set<Proceso> procesos;
 
     public Modalidad() {

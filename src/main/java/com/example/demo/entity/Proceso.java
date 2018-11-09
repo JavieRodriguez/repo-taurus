@@ -21,6 +21,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
 import javax.persistence.ManyToOne;
 import javax.persistence.Temporal;
 import javax.validation.constraints.NotNull;
@@ -39,14 +40,21 @@ public class Proceso implements Serializable {
     @NotNull
     @Column(name = "numero")
     private String numero;
+    @NotNull
     @Column(name = "palabraclave")
     private String palabraclave;
+    @NotNull
     @Column(name = "objeto")
+    @NotNull
     private String objeto;
     @Column(name = "presupuestooficial")
+    @NotNull
     private double presupuestooficial;
+    @NotNull
     @Column(name = "plazoejecucion")
+    @NotNull
     private int plazoejecucion;
+    @NotNull
     @Column(name = "fechainicio")
     @Temporal(javax.persistence.TemporalType.DATE)
     private Date fechainicio;
@@ -54,16 +62,26 @@ public class Proceso implements Serializable {
     @ManyToOne
     //@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "id")
     //@JsonIdentityReference(alwaysAsId = true)    
+    @NotNull
+    @JoinColumn
     private Compania compania;
+    @NotNull
     @ManyToOne
     //@JsonIgnore
     //@JoinColumn(name="modalidad_id",referencedColumnName="id")
     @JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "id")
-    @JsonIdentityReference(alwaysAsId = true)        
+    @JsonIdentityReference(alwaysAsId = true)
+    //@JoinColumn(name = "modalidad_id", referencedColumnName = "id")
+    @JoinColumn()
+    //@JoinColumn(name = "modalidad_id")
     private Modalidad modalidad;
+    @NotNull
     @ManyToOne
+    @JoinColumn
     private Formadepago formadepago;
+    @NotNull
     @ManyToOne
+    @JoinColumn
     private Garantia garantia;    
     
 
@@ -99,19 +117,16 @@ public class Proceso implements Serializable {
         this.garantia = garantiaaux;
     }    
     
-    public Proceso(String numero, String palabraclave, String objeto, Modalidad modalidad) {
-        this.numero = numero;
-        this.palabraclave = palabraclave;
-        this.objeto = objeto;
-        this.modalidad = modalidad;
-        //System.out.println("***************************");
-    }
     
-    public Proceso(Compania compania, String numero, String palabraclave, String objeto, Modalidad modalidad) {
+    public Proceso(Compania compania, String numero, String palabraclave, String objeto, 
+            int plazoejecucion, double presupuestooficial, Date fechainicio, Modalidad modalidad) {
         this.compania = compania;
         this.numero = numero;
         this.palabraclave = palabraclave;
         this.objeto = objeto;
+        this.plazoejecucion = plazoejecucion;
+        this.presupuestooficial = presupuestooficial;
+        this.fechainicio = fechainicio;
         this.modalidad = modalidad;
         //System.out.println("***************************");
     }    

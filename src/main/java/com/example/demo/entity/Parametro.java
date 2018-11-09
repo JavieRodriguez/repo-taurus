@@ -11,6 +11,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.validation.constraints.NotNull;
 
@@ -25,17 +26,21 @@ public class Parametro implements Serializable{
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name="id")
     private long id;
+    @NotNull
     @Column(name="codigo")
     private String codigo;
+    @NotNull
     @Column(name="subcodigo")
     private String subcodigo;
     @NotNull
     @Column(name="nombre")
+    @NotNull
     private String nombre;
     @Column(name="descripcion")
     private String descripcion;
-    
+    @NotNull
     @ManyToOne
+    @JoinColumn
     private Compania compania;
 
     public Parametro() {

@@ -26,7 +26,9 @@ public class Formadepago implements Serializable{
     private long id;
     @NotNull
     @Column(name="nombre")
+    @NotNull
     private String nombre;
+    @NotNull
     @Column(name="descripcion")
     private String descripcion;
 
