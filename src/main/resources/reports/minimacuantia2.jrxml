@@ -1,0 +1,258 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="minimacuantia" language="groovy" pageWidth="612" pageHeight="792" columnWidth="491" leftMargin="65" rightMargin="56" topMargin="70" bottomMargin="68" uuid="22a9e1ad-e3fa-40aa-b9a4-fbb791ea9b8e">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="240"/>
+	<subDataset name="dataset1" uuid="7a2cb92f-b401-4073-a0fe-6e830c7c5e37"/>
+	<parameter name="P_IMAGEN" class="java.lang.String"/>
+	<parameter name="SISTEMA" class="java.lang.String"/>
+	<parameter name="PROCESO" class="java.lang.String"/>
+	<parameter name="SECCION" class="java.lang.String"/>
+	<parameter name="NOMBREDOCUMENTO" class="java.lang.String"/>
+	<parameter name="CODIGO" class="java.lang.String"/>
+	<parameter name="VERSION" class="java.lang.String"/>
+	<parameter name="FECHAAPROBO" class="java.lang.String"/>
+	<parameter name="CIUDADFECHA" class="java.lang.String"/>
+	<parameter name="SUBREPORT_DIR" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA["C:\\Users\\Javier\\Pictures\\"]]></defaultValueExpression>
+	</parameter>
+	<field name="OBJETO" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<pageHeader>
+		<band height="70" splitType="Stretch">
+			<textField>
+				<reportElement x="372" y="0" width="119" height="14" uuid="f6e62d18-af65-48cb-94b4-99a84ee543fe"/>
+				<box>
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement>
+					<font fontName="Arial" size="9"/>
+					<paragraph leftIndent="1" spacingBefore="1"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Código: "+$P{CODIGO}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="372" y="14" width="119" height="14" uuid="92c9d272-4ab4-4c03-a0b4-ec167c88e68c"/>
+				<box>
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement>
+					<font fontName="Arial" size="9"/>
+					<paragraph leftIndent="1" spacingBefore="1"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Versión: "+$P{VERSION}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="372" y="28" width="56" height="14" uuid="be2abfcc-0b4b-46c9-a1a8-bcbdaa1eb6a1"/>
+				<box>
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement>
+					<font fontName="Arial" size="9"/>
+					<paragraph leftIndent="1" spacingBefore="1"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Pág.: "+$V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="372" y="42" width="119" height="28" uuid="929eefa6-b717-417a-bb74-c20d6fdd5e36"/>
+				<box>
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement>
+					<font fontName="Arial" size="9"/>
+					<paragraph leftIndent="1" spacingBefore="1"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Fecha Aprobación: "+$P{FECHAAPROBO}]]></textFieldExpression>
+			</textField>
+			<image>
+				<reportElement x="0" y="0" width="97" height="70" uuid="b0fbb5a1-cf56-4bf2-971f-afa9eee8ac7c"/>
+				<box>
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<imageExpression><![CDATA[$P{P_IMAGEN}]]></imageExpression>
+			</image>
+			<textField>
+				<reportElement x="97" y="0" width="275" height="14" uuid="6a9b6d3c-59ad-4b73-b9d2-4e3b790c8bba"/>
+				<box>
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement textAlignment="Center">
+					<font fontName="Arial" size="9"/>
+					<paragraph leftIndent="1" spacingBefore="1"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{SISTEMA}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="97" y="14" width="275" height="14" uuid="63b1b0bc-d06f-4203-947d-92da06b5fa55"/>
+				<box>
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement textAlignment="Center">
+					<font fontName="Arial" size="9"/>
+					<paragraph leftIndent="1" spacingBefore="1"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{PROCESO}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="97" y="28" width="275" height="14" uuid="dac24c8f-a286-4616-bab4-0c582f8a1be9"/>
+				<box>
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement textAlignment="Center">
+					<font fontName="Arial" size="9"/>
+					<paragraph leftIndent="1" spacingBefore="1"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{SECCION}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="97" y="42" width="275" height="28" uuid="1e8ed5d6-b000-4b0e-b800-9a8dd9bfed1e"/>
+				<box>
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement textAlignment="Center">
+					<font fontName="Arial" size="9"/>
+					<paragraph leftIndent="1" spacingBefore="1"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{NOMBREDOCUMENTO}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="428" y="28" width="63" height="14" uuid="dda180de-8397-4905-bb7f-f7c667baa9a6"/>
+				<box>
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.0"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement>
+					<font fontName="Arial" size="9"/>
+					<paragraph leftIndent="1" spacingBefore="1"/>
+				</textElement>
+				<textFieldExpression><![CDATA["  de "+$V{PAGE_COUNT}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageHeader>
+	<summary>
+		<band height="654" splitType="Immediate">
+			<textField>
+				<reportElement x="0" y="0" width="267" height="14" uuid="21e7ef1d-a693-473e-9225-1971fce9840b"/>
+				<textElement>
+					<font fontName="Arial" size="11"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{CIUDADFECHA}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="0" y="31" width="491" height="14" uuid="50b12a18-926b-4c2c-849a-d874c13cdab8"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial" size="11" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["ESTUDIOS Y DOCUMENTOS PREVIOS"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="0" y="45" width="491" height="44" uuid="854b9aa8-f012-4c85-aba7-f76c4444f94a"/>
+				<textElement>
+					<font fontName="Arial" size="11"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Por medio del presente, el suscrito funcionario encargado de la conformación y elaboración de los estudios previos por parte de (entidad contratante), y con fundamento en lo consagrado en el Numeral 5º del Articulo 2 de la ley 1150 de 2007, artículo 94 de la ley 1474 de Julio 12 de 201, Artículos 2.2.1.2.1.5.1. al 2.2.1.2.1.5.4. del  Decreto No 1082 de 2015 y Manual de la modalidad de Selección de mínima Cuantía Expedido por Colombia Compra Eficiente, deja constancia del Presente documento de Estudios Previos que justifican el desarrollo del proceso de selección y respectivo contrato de Mínima cuantía, cuyo objeto será "+$F{OBJETO}+", según características técnicas. "]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement stretchType="RelativeToTallestObject" x="0" y="89" width="491" height="19" isPrintWhenDetailOverflows="true" uuid="2d02893a-72c9-4436-bad6-98e691a77fb1"/>
+				<textElement textAlignment="Justified" verticalAlignment="Bottom">
+					<font fontName="Arial Narrow" size="11" isBold="true"/>
+					<paragraph firstLineIndent="1" leftIndent="1"/>
+				</textElement>
+				<textFieldExpression><![CDATA["1.  DESCRIPCION  SUCINTA DE LA NECESIDAD QUE SE PRETENDE SATISFACER CON LA CONTRATACION."]]></textFieldExpression>
+			</textField>
+			<componentElement>
+				<reportElement x="0" y="108" width="491" height="21" uuid="a7699bea-cef9-4f40-8099-c1285d90a72d"/>
+				<jr:list xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd" printOrder="Vertical">
+					<datasetRun subDataset="dataset1" uuid="274d55b3-8d7c-4419-a219-5fbb542bda1b">
+						<datasetParameter name="REPORT_CONNECTION">
+							<datasetParameterExpression><![CDATA[]]></datasetParameterExpression>
+						</datasetParameter>
+						<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.JREmptyDataSource(1)]]></dataSourceExpression>
+					</datasetRun>
+					<jr:listContents height="21" width="491"/>
+				</jr:list>
+			</componentElement>
+			<textField>
+				<reportElement stretchType="RelativeToTallestObject" x="0" y="129" width="491" height="16" isPrintWhenDetailOverflows="true" uuid="0e8181d0-234e-4b63-bd11-3ea18cb0549d"/>
+				<textElement verticalAlignment="Bottom">
+					<font fontName="Arial Narrow" size="11" isBold="true"/>
+					<paragraph firstLineIndent="1" leftIndent="1"/>
+				</textElement>
+				<textFieldExpression><![CDATA[2. DESCRIPCION DEL OBJETO A CONTRATAR IDENTIFICADO CON EL CUARTO NIVEL DE CLASIFICADOR DE BIENES Y SERVICIOS]]></textFieldExpression>
+			</textField>
+			<subreport>
+				<reportElement x="0" y="175" width="491" height="27" uuid="d2cac838-2c8b-43fe-a5ba-d051b5a28357"/>
+				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "elementos.jasper"]]></subreportExpression>
+			</subreport>
+			<textField>
+				<reportElement x="0" y="145" width="491" height="30" uuid="323d06c4-559a-4032-b2e8-ef5b8bf2b298"/>
+				<textElement>
+					<font fontName="Arial" size="11"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Por medio del presente, el suscrito funcionario encargado de la conformación y elaboración de los estudios previos por parte de (entidad contratante), y con fundamento en lo consagrado en el Numeral 5º del Articulo 2 de la ley 1150 de 2007, artículo 94 de la ley 1474 de Julio 12 de 201, Artículos 2.2.1.2.1.5.1. al 2.2.1.2.1.5.4. del  Decreto No 1082 de 2015 y Manual de la modalidad de Selección de mínima Cuantía Expedido por Colombia Compra Eficiente, deja constancia del Presente documento de Estudios Previos que justifican el desarrollo del proceso de selección y respectivo contrato de Mínima cuantía, cuyo objeto será "+$F{OBJETO}+", según características técnicas. "]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement stretchType="RelativeToTallestObject" x="0" y="202" width="491" height="16" isPrintWhenDetailOverflows="true" uuid="e01c3246-661c-4c44-a7a8-3905400bbd21"/>
+				<textElement textAlignment="Center" verticalAlignment="Bottom">
+					<font fontName="Arial Narrow" size="11" isBold="true"/>
+					<paragraph firstLineIndent="1" leftIndent="1"/>
+				</textElement>
+				<textFieldExpression><![CDATA[3. CONDICIONES TECNICAS EXIGIDAS]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="0" y="218" width="491" height="13" uuid="c07c47b7-e82d-4ace-abb3-934f3d7cc96b"/>
+				<textElement>
+					<font fontName="Arial" size="11"/>
+				</textElement>
+				<textFieldExpression><![CDATA[El alcance del objeto del contrato tendrá las siguientes características técnicas]]></textFieldExpression>
+			</textField>
+			<subreport>
+				<reportElement x="0" y="231" width="491" height="14" uuid="772eedf2-6ba3-4b43-85fc-d76604e0fc2b"/>
+				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "perspectivacomercial.jasper"]]></subreportExpression>
+			</subreport>
+		</band>
+	</summary>
+</jasperReport>

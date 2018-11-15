@@ -5,17 +5,24 @@ import com.example.demo.entity.Formadepago;
 import com.example.demo.entity.Garantia;
 import com.example.demo.entity.Modalidad;
 import com.example.demo.entity.Proceso;
+import com.example.demo.entity.Rol;
+import com.example.demo.entity.Usuario;
 import com.example.demo.repository.CompaniaRepository;
 import com.example.demo.repository.FormadepagoRepository;
 import com.example.demo.repository.GarantiaRepository;
 import com.example.demo.repository.ModalidadRepository;
 import com.example.demo.repository.ProcesoRepository;
+import com.example.demo.repository.RolRepository;
+import com.example.demo.repository.UsuarioRepository;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.Set;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 @SpringBootApplication
 public class ContratacionApplication {
@@ -29,8 +36,24 @@ public class ContratacionApplication {
             ProcesoRepository procesoRepository,
             CompaniaRepository companiaRepository,
             FormadepagoRepository formadepagoRepository,
-            GarantiaRepository garantiaRepository) {
+            GarantiaRepository garantiaRepository,
+            UsuarioRepository usuarioRepository,
+            RolRepository rolRepository) {
         return (String[] arg) -> {   
+           
+            Rol rol = new Rol("ADMINISTRADOR");
+            rolRepository.save(rol);
+            
+            
+            Set<Rol> roles = new HashSet<>();
+            roles.add(rol);
+            
+            Usuario usuario = new Usuario("usuario", "usuario@hotmail.com");
+            BCryptPasswordEncoder bCryptPasswordEncoder = new BCryptPasswordEncoder();
+            usuario.setContrasena(bCryptPasswordEncoder.encode("12345678"));
+            usuario.setRol(roles);
+            usuarioRepository.save(usuario);
+            
             
             
             Compania compania = new Compania("001", "compania001", "Tunja", "Boyacá");

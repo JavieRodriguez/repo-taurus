@@ -24,6 +24,7 @@ import net.sf.jasperreports.engine.JasperPrint;
 import net.sf.jasperreports.engine.JasperReport;
 import net.sf.jasperreports.engine.util.JRLoader;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -42,6 +43,7 @@ import org.springframework.web.bind.annotation.RestController;
 //@PreAuthorize("hasRole('ADMINISTRADOR')")
 public class ModalidadController {
 
+  
     @Autowired
     private ModalidadService modalidadService;
 
@@ -66,8 +68,10 @@ public class ModalidadController {
         JasperReport jasperReport = (JasperReport) JRLoader.loadObject(jasperStream);
         //JRDataSource jRDataSource = new JRDataSource();
         
-        String dburl = "jdbc:mysql://localhost:3306/contrataciondb";
-        String dbdriver = "com.mysql.jdbc.Driver";
+        //String dburl = "jdbc:mysql://localhost:3306/contrataciondb";
+        //String dbdriver = "com.mysql.jdbc.Driver";
+        String dburl = "jdbc:postgresql://localhost:5432/contrataciondb";
+        String dbdriver = "org.postgresql.Driver";        
         String dbuser = "contratacionuser";
         String dbpass = "contratacionuser";
         

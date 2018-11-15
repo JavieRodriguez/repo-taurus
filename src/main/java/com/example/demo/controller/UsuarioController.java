@@ -7,7 +7,6 @@ package com.example.demo.controller;
 
 import com.example.demo.entity.Usuario;
 import com.example.demo.service.UsuarioService;
-import com.mysql.fabric.Response;
 import java.security.Principal;
 import java.util.List;
 import javax.servlet.http.HttpServletRequest;

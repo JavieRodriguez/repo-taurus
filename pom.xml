@@ -46,18 +46,25 @@
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
-                <!-- H2 driver -->
+                <!-- H2 driver 
                <dependency>
 			<groupId>com.h2database</groupId>
 			<artifactId>h2</artifactId>
 			<scope>runtime</scope>
 		</dependency>
-                <!-- MySQL database driver -->
+                -->
+                
+                <!-- MySQL database driver 
 		<dependency>
 			<groupId>mysql</groupId>
 			<artifactId>mysql-connector-java</artifactId>
 		</dependency>
-                
+                -->
+		<dependency>
+			<groupId>org.postgresql</groupId>
+			<artifactId>postgresql</artifactId>
+			<scope>runtime</scope>
+		</dependency>                
                 <!-- Jasper -->
                 <dependency>
                     <groupId>net.sf.jasperreports</groupId>

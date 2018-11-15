@@ -34,7 +34,7 @@ public class Rol implements Serializable{
     @NotNull
     @Column(name="nombre")
     private String nombre;
-    @NotNull
+    //@NotNull
     @ManyToOne
     @JoinColumn
     @JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "id")
@@ -49,8 +49,7 @@ public class Rol implements Serializable{
     }
     
 
-    public Rol(long id, String nombre) {
-        this.id = id;
+    public Rol(String nombre) {
         this.nombre = nombre;
     }
 
