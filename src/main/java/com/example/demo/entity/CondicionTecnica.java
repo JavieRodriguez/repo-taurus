@@ -23,7 +23,7 @@ import javax.validation.constraints.NotNull;
  * @author mac
  */
 @Entity
-public class Parametro implements Serializable{
+public class CondicionTecnica implements Serializable{
     
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -42,21 +42,27 @@ public class Parametro implements Serializable{
     @Column(name="descripcion")
     private String descripcion;
     @NotNull
+    @Column(name="unidad")
+    @NotNull
+    private String unidad;
+    @Column(name="cantidad")
+    private int cantidad;
+    @NotNull
     @ManyToOne
     @JoinColumn
     @JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "id")
     @JsonIdentityReference(alwaysAsId = true)    
-    private Compania compania;
+    private Proceso proceso;       
 
-    public Parametro() {
+    public CondicionTecnica() {
     }
     
-    public Parametro(String nombre, String descripcion) {
+    public CondicionTecnica(String nombre, String descripcion) {
         this.nombre = nombre;
         this.descripcion = descripcion;
     }
 
-    public Parametro(long id, String nombre, String descripcion) {
+    public CondicionTecnica(long id, String nombre, String descripcion) {
         this.id = id;
         this.nombre = nombre;
         this.descripcion = descripcion;
@@ -104,14 +110,31 @@ public class Parametro implements Serializable{
         this.descripcion = descripcion;
     }
 
-    public Compania getCompania() {
-        return compania;
+    public String getUnidad() {
+        return unidad;
     }
 
-    public void setCompania(Compania compania) {
-        this.compania = compania;
+    public void setUnidad(String unidad) {
+        this.unidad = unidad;
     }
-    
+
+    public int getCantidad() {
+        return cantidad;
+    }
+
+    public void setCantidad(int cantidad) {
+        this.cantidad = cantidad;
+    }
+
+    public Proceso getProceso() {
+        return proceso;
+    }
+
+    public void setProceso(Proceso proceso) {
+        this.proceso = proceso;
+    }
+
+
     
     
 }

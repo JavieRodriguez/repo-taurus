@@ -6,6 +6,7 @@
 package com.example.demo.service;
 
 import com.example.demo.entity.Modalidad;
+import com.example.demo.entity.Proceso;
 import com.example.demo.repository.ModalidadRepository;
 import java.util.List;
 import java.util.Optional;
@@ -36,5 +37,13 @@ public class ModalidadService {
     
     public void removeModalidad(Modalidad modalidad){
         modalidadRepository.delete(modalidad);
+    }
+    
+    public boolean existsModalidad(long id){
+        return modalidadRepository.existsById(id);
+    }
+    
+    public Proceso getProceso(long modalidad_id, long proceso_id){
+        return modalidadRepository.findByProcesoId(modalidad_id, proceso_id);
     }
 }

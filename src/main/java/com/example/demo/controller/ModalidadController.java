@@ -24,11 +24,8 @@ import net.sf.jasperreports.engine.JasperPrint;
 import net.sf.jasperreports.engine.JasperReport;
 import net.sf.jasperreports.engine.util.JRLoader;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.ApplicationContext;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.security.access.prepost.PreAuthorize;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -42,21 +39,30 @@ import org.springframework.web.bind.annotation.RestController;
  * @author mac
  */
 @RestController
-//@PreAuthorize("hasRole('ADMIN')")
+//@PreAuthorize("hasRole('ADMINISTRADOR')")
 public class ModalidadController {
 
     @Autowired
     private ModalidadService modalidadService;
 
-    @Autowired
-    private ApplicationContext applicationContext;
-
-    @RequestMapping(value = "/reporte", method = RequestMethod.GET)
-    @ResponseBody
-    public void getRpt1(HttpServletResponse response) throws JRException, IOException, SQLException, ClassNotFoundException {
+    @RequestMapping(value = "/reporte/{id}", method = RequestMethod.GET)
+    //@ResponseBody
+    public void getRpt1(@PathVariable("id") long id, HttpServletResponse response) throws JRException, IOException, SQLException, ClassNotFoundException {
+        System.out.println("proceso+id" + id);
         InputStream jasperStream = this.getClass().getResourceAsStream("/reports/ejemplo.jasper");
         Map<String, Object> params = new HashMap<>();
-        params.put("STRSQL", "SELECT id, nombre, descripcion FROM MODALIDAD");
+        params.put("STRSQL", "SELECT p.id, "
+                + " p.numero, "
+                + " p.objeto, "
+                + " p.palabraclave,  "
+                + " f.nombre formadepago,"
+                + " g.nombre garantia"
+                + " FROM PROCESO p,"
+                + " formadepago f,"
+                + " garantia g"
+                + " where p.id = " + id + ""
+                        + " and p.formadepago_id = f.id"
+                        + " and p.garantia_id = g.id");
         JasperReport jasperReport = (JasperReport) JRLoader.loadObject(jasperStream);
         //JRDataSource jRDataSource = new JRDataSource();
         

@@ -30,8 +30,8 @@ public class UsuarioService {
         return usuarioRepository.findById(id);
     }
     
-    public Optional<Usuario> getUsuariobyNombre(String nombre){
-        return usuarioRepository.findByNombre(nombre);
+    public Optional<Usuario> getUsuariobyCorreo(String correo){
+        return usuarioRepository.findByCorreo(correo);
     }
     
     public Usuario saveUsuario(Usuario usuario){

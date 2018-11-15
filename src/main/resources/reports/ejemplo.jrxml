@@ -10,25 +10,38 @@
 	<field name="id" class="java.lang.Long">
 		<fieldDescription><![CDATA[]]></fieldDescription>
 	</field>
-	<field name="descripcion" class="java.lang.String">
+	<field name="numero" class="java.lang.String">
 		<fieldDescription><![CDATA[]]></fieldDescription>
 	</field>
-	<field name="nombre" class="java.lang.String">
+	<field name="objeto" class="java.lang.String">
 		<fieldDescription><![CDATA[]]></fieldDescription>
 	</field>
+	<field name="formadepago" class="java.lang.String"/>
+	<field name="garantia" class="java.lang.String"/>
 	<background>
 		<band splitType="Stretch"/>
 	</background>
 	<title>
 		<band height="79" splitType="Stretch">
-			<textField>
-				<reportElement x="234" y="59" width="100" height="20" uuid="ba2b7919-989c-432b-8abc-4185a2eccbe5"/>
-				<textFieldExpression><![CDATA[$P{STRSQL}]]></textFieldExpression>
-			</textField>
+			<staticText>
+				<reportElement x="194" y="59" width="176" height="20" uuid="554e4155-c6ab-459d-b9cc-a9c8b7a4cc03"/>
+				<text><![CDATA[ESTUDIOS Y DOCUMENTOS PREVIOS]]></text>
+			</staticText>
 		</band>
 	</title>
 	<pageHeader>
-		<band height="35" splitType="Stretch"/>
+		<band height="170" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="555" height="105" uuid="46202972-ef19-4208-9381-b874aeb7f4dc"/>
+				<text><![CDATA[Por medio del presente, el suscrito funcionario encargado de la conformación y elaboración de los estudios previos por parte de (entidad contratante), y con fundamento en lo consagrado en el Numeral 5º del Articulo 2 de la ley 1150 de 2007, artículo 94 de la ley 1474 de Julio 12 de 201, Artículos 2.2.1.2.1.5.1. al 2.2.1.2.1.5.4. del  Decreto No 1082 de 2015 y Manual de la modalidad de Selección de mínima Cuantía Expedido por Colombia Compra Eficiente, deja constancia del Presente documento de Estudios Previos que justifican el desarrollo del proceso de selección y respectivo contrato de Mínima cuantía, cuyo objeto será “XXXXXXX, según características técnicas. 
+]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="105" width="555" height="16" uuid="30414fda-d85c-4927-a4a2-f1b0fa9d5615"/>
+				<text><![CDATA[1.	DESCRIPCION  SUCINTA DE LA NECESIDAD QUE SE PRETENDE SATISFACER CON LA CONTRATACION.
+]]></text>
+			</staticText>
+		</band>
 	</pageHeader>
 	<columnHeader>
 		<band height="20" splitType="Stretch">
@@ -54,16 +67,29 @@
 			</textField>
 			<textField>
 				<reportElement x="185" y="0" width="185" height="20" uuid="e8a04155-2d96-46ad-a729-378770f486cd"/>
-				<textFieldExpression><![CDATA[$F{descripcion}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{numero}]]></textFieldExpression>
 			</textField>
 			<textField>
 				<reportElement x="370" y="0" width="185" height="20" uuid="22b08b29-754c-4851-b90f-47d6bf60e744"/>
-				<textFieldExpression><![CDATA[$F{nombre}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{objeto}]]></textFieldExpression>
 			</textField>
 		</band>
 	</detail>
 	<columnFooter>
-		<band height="45" splitType="Stretch"/>
+		<band height="45" splitType="Stretch">
+			<staticText>
+				<reportElement x="45" y="15" width="100" height="20" uuid="f43c6faf-6fab-414d-8312-e7357e799e58"/>
+				<text><![CDATA[Forma de pago:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="145" y="15" width="100" height="20" uuid="06b96c91-c325-4c29-8e1a-0945ec6a7c37"/>
+				<textFieldExpression><![CDATA[$F{formadepago}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="309" y="15" width="100" height="20" uuid="f8578c78-194a-477a-a293-d4deb05e0dab"/>
+				<textFieldExpression><![CDATA[$F{garantia}]]></textFieldExpression>
+			</textField>
+		</band>
 	</columnFooter>
 	<pageFooter>
 		<band height="54" splitType="Stretch"/>

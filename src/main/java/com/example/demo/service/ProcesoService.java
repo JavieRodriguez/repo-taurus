@@ -5,9 +5,11 @@
  */
 package com.example.demo.service;
 
+import com.example.demo.entity.Modalidad;
 import com.example.demo.entity.Proceso;
 import com.example.demo.repository.ProcesoRepository;
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
@@ -22,7 +24,7 @@ import org.springframework.stereotype.Service;
 public class ProcesoService {
     
     @Autowired
-    private ProcesoRepository procesoRepository;
+    private ProcesoRepository procesoRepository;           
     
     public List<Proceso> getAllProceso(){
         return procesoRepository.findAll();

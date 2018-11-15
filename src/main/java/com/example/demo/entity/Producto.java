@@ -25,33 +25,47 @@ import javax.validation.constraints.NotNull;
  * @author mac
  */
 @Entity
-public class Rol implements Serializable{
+public class Producto implements Serializable{
     
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name="id")
     private long id;
     @NotNull
+    @Column(name="codigo")
+    private String codigo;
+    @NotNull
+    @Column(name="subcodigo")
+    private String subcodigo;
+    @NotNull
     @Column(name="nombre")
+    @NotNull
     private String nombre;
+    @Column(name="descripcion")
+    private String descripcion;
+    
     @NotNull
     @ManyToOne
     @JoinColumn
     @JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "id")
     @JsonIdentityReference(alwaysAsId = true)    
-    private Compania compania;
-    //@ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    private Producto producto;  
+    
     @ManyToMany
-    //@JoinTable
-    private Set<Usuario> usuario;
+    private Set<Proceso> proceso;        
 
-    public Rol() {
+    public Producto() {
     }
     
+    public Producto(String nombre, String descripcion) {
+        this.nombre = nombre;
+        this.descripcion = descripcion;
+    }
 
-    public Rol(long id, String nombre) {
+    public Producto(long id, String nombre, String descripcion) {
         this.id = id;
         this.nombre = nombre;
+        this.descripcion = descripcion;
     }
 
     public long getId() {
@@ -62,6 +76,24 @@ public class Rol implements Serializable{
         this.id = id;
     }
 
+    public String getCodigo() {
+        return codigo;
+    }
+
+    public void setCodigo(String codigo) {
+        this.codigo = codigo;
+    }
+
+    public String getSubcodigo() {
+        return subcodigo;
+    }
+
+    public void setSubcodigo(String subcodigo) {
+        this.subcodigo = subcodigo;
+    }
+    
+    
+
     public String getNombre() {
         return nombre;
     }
@@ -70,22 +102,29 @@ public class Rol implements Serializable{
         this.nombre = nombre;
     }
 
-    public Compania getCompania() {
-        return compania;
+    public String getDescripcion() {
+        return descripcion;
     }
 
-    public void setCompania(Compania compania) {
-        this.compania = compania;
+    public void setDescripcion(String descripcion) {
+        this.descripcion = descripcion;
     }
 
-    public Set<Usuario> getUsuarios() {
-        return usuario;
+    public Producto getProducto() {
+        return producto;
     }
 
-    public void setUsuarios(Set<Usuario> usuario) {
-        this.usuario = usuario;
+    public void setProducto(Producto producto) {
+        this.producto = producto;
     }
 
+    public Set<Proceso> getProceso() {
+        return proceso;
+    }
+
+    public void setProceso(Set<Proceso> proceso) {
+        this.proceso = proceso;
+    }
     
     
 }

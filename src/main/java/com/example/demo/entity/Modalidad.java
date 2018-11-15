@@ -6,18 +6,11 @@
 package com.example.demo.entity;
 
 import java.io.Serializable;
-import java.util.Collections;
-import java.util.HashSet;
-import java.util.Set;
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
-import javax.persistence.OneToMany;
 import javax.validation.constraints.NotNull;
 
 /**
@@ -37,26 +30,28 @@ public class Modalidad implements Serializable{
     @NotNull
     @Column(name="descripcion")
     private String descripcion;
-    @NotNull
-    @OneToMany(mappedBy = "modalidad", cascade = CascadeType.ALL)
+    //@NotNull
+    //@OneToMany(mappedBy = "modalidad", cascade = CascadeType.ALL)
     //@JoinColumn(name = "modalidad_id")
-    private final Set<Proceso> procesos;
+    //@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "id")
+    //@JsonIdentityReference(alwaysAsId = true)    
+    //private final Set<Proceso> procesos;
 
     public Modalidad() {
-        this.procesos = new HashSet<>();
+        //this.procesos = new HashSet<>();
     }
     
     public Modalidad(String nombre, String descripcion) {
         this.nombre = nombre;
         this.descripcion = descripcion;
-        this.procesos = new HashSet<>();
+        //this.procesos = new HashSet<>();
     }
 
     public Modalidad(long id, String nombre, String descripcion) {
         this.id = id;
         this.nombre = nombre;
         this.descripcion = descripcion;
-        this.procesos = new HashSet<>();
+        //this.procesos = new HashSet<>();
     }
 
     public long getId() {
@@ -82,6 +77,8 @@ public class Modalidad implements Serializable{
     public void setDescripcion(String descripcion) {
         this.descripcion = descripcion;
     }
+    
+    /*
 
     public Set<Proceso> getProcesos() {
         return Collections.unmodifiableSet(this.procesos);
@@ -91,6 +88,8 @@ public class Modalidad implements Serializable{
         proceso.setModalidad(this);
         this.procesos.add(proceso);
     }
+
+*/
     
     
 }

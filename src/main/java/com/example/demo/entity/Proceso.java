@@ -5,23 +5,20 @@
  */
 package com.example.demo.entity;
 
-import com.example.demo.service.CompaniaService;
-import com.example.demo.service.FormadepagoService;
-import com.example.demo.service.GarantiaService;
-import com.example.demo.service.ModalidadService;
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.JsonIdentityReference;
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import java.io.Serializable;
 import java.util.Date;
+import java.util.Set;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.Temporal;
 import javax.validation.constraints.NotNull;
@@ -41,12 +38,11 @@ public class Proceso implements Serializable {
     @Column(name = "numero")
     private String numero;
     @NotNull
+    @Column(name = "objeto")
+    private String objeto;    
+    @NotNull
     @Column(name = "palabraclave")
     private String palabraclave;
-    @NotNull
-    @Column(name = "objeto")
-    @NotNull
-    private String objeto;
     @Column(name = "presupuestooficial")
     @NotNull
     private double presupuestooficial;
@@ -54,41 +50,53 @@ public class Proceso implements Serializable {
     @Column(name = "plazoejecucion")
     @NotNull
     private int plazoejecucion;
-    @NotNull
+   
     @Column(name = "fechainicio")
     @Temporal(javax.persistence.TemporalType.DATE)
     private Date fechainicio;
 
     @ManyToOne
-    //@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "id")
-    //@JsonIdentityReference(alwaysAsId = true)    
     @NotNull
     @JoinColumn
+    //@JsonIdentityInfo(scope = Compania.class,generator = ObjectIdGenerators.PropertyGenerator.class, property = "id")
+    //@JsonIdentityReference(alwaysAsId = true)    
     private Compania compania;
     @NotNull
     @ManyToOne
-    //@JsonIgnore
-    //@JoinColumn(name="modalidad_id",referencedColumnName="id")
-    @JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "id")
-    @JsonIdentityReference(alwaysAsId = true)
-    //@JoinColumn(name = "modalidad_id", referencedColumnName = "id")
-    @JoinColumn()
-    //@JoinColumn(name = "modalidad_id")
+    //@JsonIdentityInfo(scope = Modalidad.class, generator = ObjectIdGenerators.PropertyGenerator.class, property = "id")
+    //@JsonIdentityReference(alwaysAsId = true)
+    @JoinColumn
     private Modalidad modalidad;
     @NotNull
     @ManyToOne
     @JoinColumn
+    //@JsonIdentityInfo(scope = Formadepago.class, generator = ObjectIdGenerators.PropertyGenerator.class, property = "id")
+    //@JsonIdentityReference(alwaysAsId = true)    
     private Formadepago formadepago;
     @NotNull
     @ManyToOne
     @JoinColumn
-    private Garantia garantia;    
+    //@JsonIdentityInfo(scope = Garantia.class, generator = ObjectIdGenerators.PropertyGenerator.class, property = "id")
+    //@JsonIdentityReference(alwaysAsId = true)    
+    private Garantia garantia; 
+    
+    //@NotNull
+    //@ManyToOne
+    //@JoinColumn
+    //@JsonIdentityInfo(scope = Garantia.class, generator = ObjectIdGenerators.PropertyGenerator.class, property = "id")
+    //@JsonIdentityReference(alwaysAsId = true)    
+    //private Tipocontrato tipocontrato;     
+    
+    @ManyToMany(fetch = FetchType.EAGER, mappedBy = "proceso")
+    //@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "id")
+    //@JsonIdentityReference(alwaysAsId = true)
+    private Set<Producto> producto;    
     
 
     public Proceso() {
     }
     
-    
+    /*
     public Proceso(String numero, 
             String palabraclave, 
             String objeto,
@@ -116,10 +124,13 @@ public class Proceso implements Serializable {
         this.formadepago = formadepagoaux;
         this.garantia = garantiaaux;
     }    
+*/
     
     
     public Proceso(Compania compania, String numero, String palabraclave, String objeto, 
-            int plazoejecucion, double presupuestooficial, Date fechainicio, Modalidad modalidad) {
+            int plazoejecucion, double presupuestooficial, Date fechainicio, Modalidad modalidad,
+            Formadepago formadepago,
+            Garantia garantia) {
         this.compania = compania;
         this.numero = numero;
         this.palabraclave = palabraclave;
@@ -128,9 +139,12 @@ public class Proceso implements Serializable {
         this.presupuestooficial = presupuestooficial;
         this.fechainicio = fechainicio;
         this.modalidad = modalidad;
+        this.formadepago = formadepago;
+        this.garantia = garantia;
         //System.out.println("***************************");
     }    
-        
+    
+/*    
     public Proceso(long id, String numero, String palabraclave, String objeto, Modalidad modalidad) {
         this.id = id;
         this.numero = numero;
@@ -138,6 +152,7 @@ public class Proceso implements Serializable {
         this.objeto = objeto;
         this.modalidad = modalidad;
     }
+*/
 
     public long getId() {
         return id;
@@ -228,4 +243,24 @@ public class Proceso implements Serializable {
         this.garantia = garantia;
     }
 
+    /*
+    public Tipocontrato getTipocontrato() {
+        return tipocontrato;
+    }
+
+    public void setTipocontrato(Tipocontrato tipocontrato) {
+        this.tipocontrato = tipocontrato;
+    }
+    
+    */
+
+    public Set<Producto> getProducto() {
+        return producto;
+    }
+
+    public void setProducto(Set<Producto> producto) {
+        this.producto = producto;
+    }
+
+    
 }

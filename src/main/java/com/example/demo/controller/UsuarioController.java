@@ -7,25 +7,25 @@ package com.example.demo.controller;
 
 import com.example.demo.entity.Usuario;
 import com.example.demo.service.UsuarioService;
+import com.mysql.fabric.Response;
 import java.security.Principal;
 import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.xml.ws.soap.AddressingFeature;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.Authentication;
-import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.core.context.SecurityContextHolder;
-import org.springframework.security.core.userdetails.User;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.web.authentication.logout.SecurityContextLogoutHandler;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.server.ResponseStatusException;
 
 /**
  *
@@ -44,8 +44,15 @@ public class UsuarioController {
         System.out.println("request: " + request.getUserPrincipal());
         System.out.println("request2: " + request.getAttribute("nombre"));
         Principal principal = request.getUserPrincipal();
-        return new ResponseEntity<>(usuarioService.getUsuariobyNombre(principal.getName()).get(), HttpStatus.OK);
-        
+        if (principal != null) {
+            if (usuarioService.getUsuariobyCorreo(principal.getName()).get() != null){
+                return new ResponseEntity<>(usuarioService.getUsuariobyCorreo(principal.getName()).get(), HttpStatus.OK);
+            } else {
+                throw new  ResponseStatusException(HttpStatus.UNAUTHORIZED);
+            }
+        } else {
+            throw new  ResponseStatusException(HttpStatus.UNAUTHORIZED);
+        }     
     }
     
     @RequestMapping(value="/cerrar-sesion", method = RequestMethod.GET)
@@ -68,11 +75,6 @@ public class UsuarioController {
         return new ResponseEntity<>(usuarioService.getUsuarioById(id).get(), HttpStatus.OK);
     }
     
-    @RequestMapping(value = "/usuarioporcorreo/{correo}", method = RequestMethod.GET)
-    public ResponseEntity<Usuario> getToDoById(@PathVariable("correo") String correo) {
-        return new ResponseEntity<>(usuarioService.getUsuariobyNombre(correo).get(), HttpStatus.OK);
-    }    
-
     @RequestMapping(value = "/usuario", method = RequestMethod.POST)
     public ResponseEntity<Usuario> saveToDo(@RequestBody Usuario usuario) {
         //return new ResponseEntity<>(usuarioService.saveUsuario(usuario), HttpStatus.OK);
