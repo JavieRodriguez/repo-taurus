@@ -45,13 +45,13 @@ public class ContratacionApplication {
             rolRepository.save(rol);
             
             
-            Set<Rol> roles = new HashSet<>();
-            roles.add(rol);
+            //Set<Rol> roles = new HashSet<>();
+            //roles.add(rol);
             
             Usuario usuario = new Usuario("usuario", "usuario@hotmail.com");
             BCryptPasswordEncoder bCryptPasswordEncoder = new BCryptPasswordEncoder();
             usuario.setContrasena(bCryptPasswordEncoder.encode("12345678"));
-            usuario.setRol(roles);
+            //usuario.setRol(roles);
             usuarioRepository.save(usuario);
             
             

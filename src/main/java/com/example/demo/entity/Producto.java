@@ -44,7 +44,7 @@ public class Producto implements Serializable{
     @Column(name="descripcion")
     private String descripcion;
     
-    @NotNull
+    //@NotNull
     @ManyToOne
     @JoinColumn
     @JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "id")

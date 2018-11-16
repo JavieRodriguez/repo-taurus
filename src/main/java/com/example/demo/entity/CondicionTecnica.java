@@ -47,7 +47,7 @@ public class CondicionTecnica implements Serializable{
     private String unidad;
     @Column(name="cantidad")
     private int cantidad;
-    @NotNull
+    //@NotNull
     @ManyToOne
     @JoinColumn
     @JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "id")
