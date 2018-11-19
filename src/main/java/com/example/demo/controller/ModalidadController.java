@@ -7,6 +7,7 @@ package com.example.demo.controller;
 
 import com.example.demo.entity.Modalidad;
 import com.example.demo.service.ModalidadService;
+import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
@@ -15,6 +16,7 @@ import java.sql.SQLException;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import javax.servlet.http.HttpServletRequest;
 
 import javax.servlet.http.HttpServletResponse;
 import net.sf.jasperreports.engine.JRException;
@@ -49,22 +51,42 @@ public class ModalidadController {
 
     @RequestMapping(value = "/reporte/{id}", method = RequestMethod.GET)
     //@ResponseBody
-    public void getRpt1(@PathVariable("id") long id, HttpServletResponse response) throws JRException, IOException, SQLException, ClassNotFoundException {
+    public void getRpt1(@PathVariable("id") long id, HttpServletRequest request, HttpServletResponse response) throws JRException, IOException, SQLException, ClassNotFoundException {
         System.out.println("proceso+id" + id);
-        InputStream jasperStream = this.getClass().getResourceAsStream("/reports/ejemplo.jasper");
+        //InputStream jasperStream = this.getClass().getResourceAsStream("/reports/ejemplo.jasper");
+        InputStream jasperStream = this.getClass().getResourceAsStream("/reports/minimacuantia2.jasper");
         Map<String, Object> params = new HashMap<>();
+        params.put("CIUDADFECHA", "Tunja 01 de Enero de 2019");
+
+        //File file = new File("/src/main/resources/reports/logo.png");
+        //System.out.println("gg" + file.getAbsolutePath());
+        params.put("SUBREPORTEDIR", "src/main/resources/reports/");
+        params.put("IMAGEN", "src/main/resources/reports/logo.png");
+        //params.put("IMAGEN", "../../../../src/main/resources/reports/logo.png");
+        params.put("SISTEMA", "TAURUS");
+        params.put("PROCESO", "1");
+        params.put("SECCION", "1");
+        params.put("NOMBREDOCUMENTO", "ESTUDIOS PREVIOS MINIMA CUANTIA");
         params.put("STRSQL", "SELECT p.id, "
                 + " p.numero, "
                 + " p.objeto, "
                 + " p.palabraclave,  "
                 + " f.nombre formadepago,"
-                + " g.nombre garantia"
+                + " g.nombre garantia,"
+                + " p.objeto OBJETO"
                 + " FROM PROCESO p,"
                 + " formadepago f,"
                 + " garantia g"
+                + " where p.id = 1 ");
+        params.put("SUBSTRSQL1", "SELECT ID, 'ENTIDAD' ENTIDAD, 'NROPROCESO' NROPROCESO, 'MODALIDAD' MODALIDAD,"
+                + " 'BIENOSERVICIO' BIENOSERVICIO, 20000000 PRESUPUESTOOFICIAL,"
+                + " 9999999 VALORFINAL, 'DIAS' UNIDADDURACION, 12 DURACION FROM USUARIO");
+        params.put("SUBSTRSQL2", "SELECT ID FROM USUARIO");
+        /*
                 + " where p.id = " + id + ""
                         + " and p.formadepago_id = f.id"
                         + " and p.garantia_id = g.id");
+        */
         JasperReport jasperReport = (JasperReport) JRLoader.loadObject(jasperStream);
         //JRDataSource jRDataSource = new JRDataSource();
         
@@ -77,6 +99,7 @@ public class ModalidadController {
         String dbuser = "contratacionuser";
         String dbpass = "contratacionuser";
         */
+        
         
         String dburl = System.getenv("JDBC_DATABASE_URL");
         String dbdriver = "org.postgresql.Driver";        
@@ -130,4 +153,5 @@ public class ModalidadController {
         modalidadService.removeModalidad(modalidad);
         return new ResponseEntity<>("Modalidad eliminada", HttpStatus.OK);
     }
+
 }

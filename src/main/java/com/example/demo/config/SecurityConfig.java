@@ -49,7 +49,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
                     "/home",
                     "/username",
                     "/reporte*"
-                   ,"/reporte/*"
+                   ,"/reporte/*",
+                    "/reports/*"
                     ).permitAll()      
             .antMatchers(
                     HttpMethod.POST, 
