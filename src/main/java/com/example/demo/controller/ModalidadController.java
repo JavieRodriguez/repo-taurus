@@ -93,19 +93,19 @@ public class ModalidadController {
         //String dburl = "jdbc:mysql://localhost:3306/contrataciondb";
         //String dbdriver = "com.mysql.jdbc.Driver";
         
-      
+      /*
         String dburl = "jdbc:postgresql://localhost:5432/contrataciondb";
         String dbdriver = "org.postgresql.Driver";        
         String dbuser = "contratacionuser";
         String dbpass = "contratacionuser";
+        */
         
         
-        /*
         String dburl = System.getenv("JDBC_DATABASE_URL");
         String dbdriver = "org.postgresql.Driver";        
         String dbuser = System.getenv("JDBC_DATABASE_USERNAME");
         String dbpass = System.getenv("JDBC_DATABASE_PASSWORD");
-        */
+        
         
         Class.forName(dbdriver);
         
