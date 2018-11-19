@@ -20,112 +20,112 @@
 			<textField>
 				<reportElement x="0" y="0" width="449" height="20" uuid="bd05f966-401c-478f-9973-b5cfbc73cf5a"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font fontName="Arial" size="11" isBold="true"/>
+					<font fontName="Tahoma" size="11" isBold="true"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{NOMBREELEMENTO}]]></textFieldExpression>
 			</textField>
 			<textField>
 				<reportElement x="100" y="40" width="121" height="20" uuid="11c41464-35e4-45f4-adc0-304f03d8603f"/>
 				<textElement textAlignment="Justified" verticalAlignment="Middle">
-					<font fontName="Arial" size="11"/>
+					<font fontName="Tahoma" size="11"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{SEGMENTOUNSPSC}]]></textFieldExpression>
 			</textField>
 			<textField>
 				<reportElement x="100" y="60" width="121" height="20" uuid="bd4b2237-6962-4cda-abb2-dc12db1102e2"/>
 				<textElement textAlignment="Justified" verticalAlignment="Middle">
-					<font fontName="Arial" size="11"/>
+					<font fontName="Tahoma" size="11"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{FAMILIAUNSPSC}]]></textFieldExpression>
 			</textField>
 			<textField>
 				<reportElement x="100" y="80" width="121" height="20" uuid="935aee6b-ed67-4a15-80eb-69450539e772"/>
 				<textElement textAlignment="Justified" verticalAlignment="Middle">
-					<font fontName="Arial" size="11"/>
+					<font fontName="Tahoma" size="11"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{CLASEUNSPSC}]]></textFieldExpression>
 			</textField>
 			<textField>
 				<reportElement x="100" y="100" width="121" height="20" uuid="0f89fba7-2b14-4c51-8770-61917f7ba162"/>
 				<textElement textAlignment="Justified" verticalAlignment="Middle">
-					<font fontName="Arial" size="11"/>
+					<font fontName="Tahoma" size="11"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{PRODUCTOUNSPSC}]]></textFieldExpression>
 			</textField>
 			<textField>
 				<reportElement x="221" y="40" width="228" height="20" uuid="89497e50-afc4-4ad8-9917-0a987dbb3f71"/>
 				<textElement textAlignment="Justified" verticalAlignment="Middle">
-					<font fontName="Arial" size="11"/>
+					<font fontName="Tahoma" size="11"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{SEGMENTONOMBRE}]]></textFieldExpression>
 			</textField>
 			<textField>
 				<reportElement x="221" y="60" width="228" height="20" uuid="c4f4667e-41d0-4555-a1d3-2e45dbd40f92"/>
 				<textElement textAlignment="Justified" verticalAlignment="Middle">
-					<font fontName="Arial" size="11"/>
+					<font fontName="Tahoma" size="11"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{FAMILIANOMBRE}]]></textFieldExpression>
 			</textField>
 			<textField>
 				<reportElement x="221" y="80" width="228" height="20" uuid="b1af2f2b-609a-4861-accd-b2a0552d84b7"/>
 				<textElement textAlignment="Justified" verticalAlignment="Middle">
-					<font fontName="Arial" size="11"/>
+					<font fontName="Tahoma" size="11"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{CLASENOMBRE}]]></textFieldExpression>
 			</textField>
 			<textField>
 				<reportElement x="221" y="100" width="228" height="20" uuid="964c2d98-4591-44c2-86be-43548201199b"/>
 				<textElement textAlignment="Justified" verticalAlignment="Middle">
-					<font fontName="Arial" size="11"/>
+					<font fontName="Tahoma" size="11"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{PRODUCTONOMBRE}]]></textFieldExpression>
 			</textField>
 			<textField>
 				<reportElement x="0" y="20" width="100" height="20" uuid="03ac2422-3e32-43a3-9f9b-7a0044f148ba"/>
 				<textElement>
-					<font fontName="Arial" size="11" isBold="true"/>
+					<font fontName="Tahoma" size="11" isBold="true"/>
 				</textElement>
 				<textFieldExpression><![CDATA[NIVEL]]></textFieldExpression>
 			</textField>
 			<textField>
 				<reportElement x="0" y="60" width="100" height="20" uuid="14d76777-4475-47a3-b05b-4e773d9e0fb5"/>
 				<textElement>
-					<font fontName="Arial" size="11" isBold="true"/>
+					<font fontName="Tahoma" size="11" isBold="true"/>
 				</textElement>
 				<textFieldExpression><![CDATA[FAMILIA]]></textFieldExpression>
 			</textField>
 			<textField>
 				<reportElement x="0" y="40" width="100" height="20" uuid="b2829650-0ee8-45ec-a975-45add256e12f"/>
 				<textElement>
-					<font fontName="Arial" size="11" isBold="true"/>
+					<font fontName="Tahoma" size="11" isBold="true"/>
 				</textElement>
 				<textFieldExpression><![CDATA[SEGMENTO]]></textFieldExpression>
 			</textField>
 			<textField>
 				<reportElement x="0" y="80" width="100" height="20" uuid="33164dc5-a1b3-4209-90cd-6d077cfe200b"/>
 				<textElement>
-					<font fontName="Arial" size="11" isBold="true"/>
+					<font fontName="Tahoma" size="11" isBold="true"/>
 				</textElement>
 				<textFieldExpression><![CDATA[CLASE]]></textFieldExpression>
 			</textField>
 			<textField>
 				<reportElement x="0" y="100" width="100" height="20" uuid="468cef78-1be6-4a8e-9e4f-9c7f5b3ae356"/>
 				<textElement>
-					<font fontName="Arial" size="11" isBold="true"/>
+					<font fontName="Tahoma" size="11" isBold="true"/>
 				</textElement>
 				<textFieldExpression><![CDATA[PRODUCTO]]></textFieldExpression>
 			</textField>
 			<textField>
 				<reportElement x="221" y="20" width="228" height="20" uuid="1c251f6e-a3d3-48e7-80d7-2ebc9770d7cb"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font fontName="Arial" size="11" isBold="true"/>
+					<font fontName="Tahoma" size="11" isBold="true"/>
 				</textElement>
 				<textFieldExpression><![CDATA[NOMBRE]]></textFieldExpression>
 			</textField>
 			<textField>
 				<reportElement x="100" y="20" width="121" height="20" uuid="a2f3f32c-1b1b-45d3-9522-e9e807becf36"/>
 				<textElement>
-					<font fontName="Arial" size="11" isBold="true"/>
+					<font fontName="Tahoma" size="11" isBold="true"/>
 				</textElement>
 				<textFieldExpression><![CDATA["CODIGO UNSPSC"]]></textFieldExpression>
 			</textField>

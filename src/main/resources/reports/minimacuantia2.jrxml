@@ -4,7 +4,7 @@
 	<property name="ireport.x" value="0"/>
 	<property name="ireport.y" value="0"/>
 	<subDataset name="dataset1" uuid="7a2cb92f-b401-4073-a0fe-6e830c7c5e37"/>
-	<parameter name="P_IMAGEN" class="java.lang.String"/>
+	<parameter name="IMAGEN" class="java.lang.String"/>
 	<parameter name="SISTEMA" class="java.lang.String"/>
 	<parameter name="PROCESO" class="java.lang.String"/>
 	<parameter name="SECCION" class="java.lang.String"/>
@@ -38,7 +38,7 @@
 					<rightPen lineWidth="0.25"/>
 				</box>
 				<textElement>
-					<font fontName="Arial" size="9"/>
+					<font fontName="Tahoma" size="9"/>
 					<paragraph leftIndent="1" spacingBefore="1"/>
 				</textElement>
 				<textFieldExpression><![CDATA["Código: "+$P{CODIGO}]]></textFieldExpression>
@@ -53,7 +53,7 @@
 					<rightPen lineWidth="0.25"/>
 				</box>
 				<textElement>
-					<font fontName="Arial" size="9"/>
+					<font fontName="Tahoma" size="9"/>
 					<paragraph leftIndent="1" spacingBefore="1"/>
 				</textElement>
 				<textFieldExpression><![CDATA["Versión: "+$P{VERSION}]]></textFieldExpression>
@@ -68,7 +68,7 @@
 					<rightPen lineWidth="0.0"/>
 				</box>
 				<textElement>
-					<font fontName="Arial" size="9"/>
+					<font fontName="Tahoma" size="9"/>
 					<paragraph leftIndent="1" spacingBefore="1"/>
 				</textElement>
 				<textFieldExpression><![CDATA["Pág.: "+$V{PAGE_NUMBER}]]></textFieldExpression>
@@ -83,7 +83,7 @@
 					<rightPen lineWidth="0.25"/>
 				</box>
 				<textElement>
-					<font fontName="Arial" size="9"/>
+					<font fontName="Tahoma" size="9"/>
 					<paragraph leftIndent="1" spacingBefore="1"/>
 				</textElement>
 				<textFieldExpression><![CDATA["Fecha Aprobación: "+$P{FECHAAPROBO}]]></textFieldExpression>
@@ -109,7 +109,7 @@
 					<rightPen lineWidth="0.25"/>
 				</box>
 				<textElement textAlignment="Center">
-					<font fontName="Arial" size="9"/>
+					<font fontName="Tahoma" size="9"/>
 					<paragraph leftIndent="1" spacingBefore="1"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$P{SISTEMA}]]></textFieldExpression>
@@ -124,7 +124,7 @@
 					<rightPen lineWidth="0.25"/>
 				</box>
 				<textElement textAlignment="Center">
-					<font fontName="Arial" size="9"/>
+					<font fontName="Tahoma" size="9"/>
 					<paragraph leftIndent="1" spacingBefore="1"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$P{PROCESO}]]></textFieldExpression>
@@ -139,7 +139,7 @@
 					<rightPen lineWidth="0.25"/>
 				</box>
 				<textElement textAlignment="Center">
-					<font fontName="Arial" size="9"/>
+					<font fontName="Tahoma" size="9"/>
 					<paragraph leftIndent="1" spacingBefore="1"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$P{SECCION}]]></textFieldExpression>
@@ -154,7 +154,7 @@
 					<rightPen lineWidth="0.25"/>
 				</box>
 				<textElement textAlignment="Center">
-					<font fontName="Arial" size="9"/>
+					<font fontName="Tahoma" size="9"/>
 					<paragraph leftIndent="1" spacingBefore="1"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$P{NOMBREDOCUMENTO}]]></textFieldExpression>
@@ -169,7 +169,7 @@
 					<rightPen lineWidth="0.5"/>
 				</box>
 				<textElement>
-					<font fontName="Arial" size="9"/>
+					<font fontName="Tahoma" size="9"/>
 					<paragraph leftIndent="1" spacingBefore="1"/>
 				</textElement>
 				<textFieldExpression><![CDATA["  de "+$V{PAGE_COUNT}]]></textFieldExpression>
@@ -181,28 +181,28 @@
 			<textField>
 				<reportElement x="0" y="0" width="267" height="14" uuid="21e7ef1d-a693-473e-9225-1971fce9840b"/>
 				<textElement>
-					<font fontName="Arial" size="11"/>
+					<font fontName="Tahoma" size="11"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$P{CIUDADFECHA}]]></textFieldExpression>
 			</textField>
 			<textField>
 				<reportElement x="0" y="31" width="491" height="14" uuid="50b12a18-926b-4c2c-849a-d874c13cdab8"/>
 				<textElement textAlignment="Center">
-					<font fontName="Arial" size="11" isBold="true"/>
+					<font fontName="Tahoma" size="11" isBold="true"/>
 				</textElement>
 				<textFieldExpression><![CDATA["ESTUDIOS Y DOCUMENTOS PREVIOS"]]></textFieldExpression>
 			</textField>
 			<textField>
 				<reportElement x="0" y="45" width="491" height="44" uuid="854b9aa8-f012-4c85-aba7-f76c4444f94a"/>
 				<textElement>
-					<font fontName="Arial" size="11"/>
+					<font fontName="Tahoma" size="11"/>
 				</textElement>
 				<textFieldExpression><![CDATA["Por medio del presente, el suscrito funcionario encargado de la conformación y elaboración de los estudios previos por parte de (entidad contratante), y con fundamento en lo consagrado en el Numeral 5º del Articulo 2 de la ley 1150 de 2007, artículo 94 de la ley 1474 de Julio 12 de 201, Artículos 2.2.1.2.1.5.1. al 2.2.1.2.1.5.4. del  Decreto No 1082 de 2015 y Manual de la modalidad de Selección de mínima Cuantía Expedido por Colombia Compra Eficiente, deja constancia del Presente documento de Estudios Previos que justifican el desarrollo del proceso de selección y respectivo contrato de Mínima cuantía, cuyo objeto será "+$F{OBJETO}+", según características técnicas. "]]></textFieldExpression>
 			</textField>
 			<textField>
 				<reportElement stretchType="RelativeToTallestObject" x="0" y="89" width="491" height="19" isPrintWhenDetailOverflows="true" uuid="2d02893a-72c9-4436-bad6-98e691a77fb1"/>
 				<textElement textAlignment="Justified" verticalAlignment="Bottom">
-					<font fontName="Arial Narrow" size="11" isBold="true"/>
+					<font fontName="Tahoma Narrow" size="11" isBold="true"/>
 					<paragraph firstLineIndent="1" leftIndent="1"/>
 				</textElement>
 				<textFieldExpression><![CDATA["1.  DESCRIPCION  SUCINTA DE LA NECESIDAD QUE SE PRETENDE SATISFACER CON LA CONTRATACION."]]></textFieldExpression>
@@ -222,7 +222,7 @@
 			<textField>
 				<reportElement stretchType="RelativeToTallestObject" x="0" y="129" width="491" height="16" isPrintWhenDetailOverflows="true" uuid="0e8181d0-234e-4b63-bd11-3ea18cb0549d"/>
 				<textElement verticalAlignment="Bottom">
-					<font fontName="Arial Narrow" size="11" isBold="true"/>
+					<font fontName="Tahoma Narrow" size="11" isBold="true"/>
 					<paragraph firstLineIndent="1" leftIndent="1"/>
 				</textElement>
 				<textFieldExpression><![CDATA["2. DESCRIPCION DEL OBJETO A CONTRATAR IDENTIFICADO CON EL CUARTO NIVEL DE CLASIFICADOR DE BIENES Y SERVICIOS"]]></textFieldExpression>
@@ -238,14 +238,14 @@
 			<textField>
 				<reportElement x="0" y="145" width="491" height="30" uuid="323d06c4-559a-4032-b2e8-ef5b8bf2b298"/>
 				<textElement>
-					<font fontName="Arial" size="11"/>
+					<font fontName="Tahoma" size="11"/>
 				</textElement>
 				<textFieldExpression><![CDATA["Por medio del presente, el suscrito funcionario encargado de la conformación y elaboración de los estudios previos por parte de (entidad contratante), y con fundamento en lo consagrado en el Numeral 5º del Articulo 2 de la ley 1150 de 2007, artículo 94 de la ley 1474 de Julio 12 de 201, Artículos 2.2.1.2.1.5.1. al 2.2.1.2.1.5.4. del  Decreto No 1082 de 2015 y Manual de la modalidad de Selección de mínima Cuantía Expedido por Colombia Compra Eficiente, deja constancia del Presente documento de Estudios Previos que justifican el desarrollo del proceso de selección y respectivo contrato de Mínima cuantía, cuyo objeto será "+$F{OBJETO}+", según características técnicas. "]]></textFieldExpression>
 			</textField>
 			<textField>
 				<reportElement stretchType="RelativeToTallestObject" x="0" y="202" width="491" height="16" isPrintWhenDetailOverflows="true" uuid="e01c3246-661c-4c44-a7a8-3905400bbd21"/>
 				<textElement textAlignment="Center" verticalAlignment="Bottom">
-					<font fontName="Arial Narrow" size="11" isBold="true"/>
+					<font fontName="Tahoma Narrow" size="11" isBold="true"/>
 					<paragraph firstLineIndent="1" leftIndent="1"/>
 				</textElement>
 				<textFieldExpression><![CDATA["3. CONDICIONES TECNICAS EXIGIDAS"]]></textFieldExpression>
@@ -253,7 +253,7 @@
 			<textField>
 				<reportElement x="0" y="218" width="491" height="13" uuid="c07c47b7-e82d-4ace-abb3-934f3d7cc96b"/>
 				<textElement>
-					<font fontName="Arial" size="11"/>
+					<font fontName="Tahoma" size="11"/>
 				</textElement>
 				<textFieldExpression><![CDATA["El alcance del objeto del contrato tendrá las siguientes características técnicas"]]></textFieldExpression>
 			</textField>
@@ -272,7 +272,7 @@
 			<textField>
 				<reportElement x="0" y="19" width="491" height="14" uuid="f75a87a4-17df-4631-8030-90a0b8db2e38"/>
 				<textElement textAlignment="Center">
-					<font fontName="Arial" size="11" isBold="true"/>
+					<font fontName="Tahoma" size="11" isBold="true"/>
 				</textElement>
 				<textFieldExpression><![CDATA["NO SE ENCONTRARON DATOS PARA ESTE REPORTE"]]></textFieldExpression>
 			</textField>
