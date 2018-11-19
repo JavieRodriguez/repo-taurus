@@ -69,7 +69,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
                     "/usuario/*",
                     "/proceso*",
                     "/proceso/*"               
-            ).hasAnyRole("USUARIO")
+            ).hasAnyRole("USUARIO", "ADMINISTRADOR")
             .antMatchers(
                     HttpMethod.POST,
                     "/proceso*"             
