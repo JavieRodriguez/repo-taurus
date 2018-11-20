@@ -120,7 +120,8 @@ public class ModalidadController {
         //.fillReport(jasperReport, params, new JREmptyDataSource());
 
         response.setContentType("application/x-pdf");
-        response.setHeader("Content-disposition", "inline; filename=modalidades.pdf");
+        //response.setHeader("Content-disposition", "inline; filename=modalidades.pdf");
+        response.setHeader("Content-Disposition", "inline");
 
         final OutputStream outStream = response.getOutputStream();
         JasperExportManager.exportReportToPdfStream(jasperPrint, outStream);
