@@ -1,7 +1,7 @@
-<project name="Arial" >
+<project name="MisFuentes" >
 <target name="crear-jar">
     <mkdir dir="build/jar"/>
-    <jar destfile="build/jar/Arial.jar">
+    <jar destfile="build/jar/MisFuentes.jar">
         <fileset refid='files.for.jar'/>
         <manifest>
 		<attribute name='Specification-Version' value='1.0'/> 
