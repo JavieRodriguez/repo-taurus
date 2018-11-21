@@ -3,8 +3,9 @@
 	<property name="ireport.zoom" value="1.0"/>
 	<property name="ireport.x" value="0"/>
 	<property name="ireport.y" value="0"/>
+	<parameter name="STRSQL" class="java.lang.String"/>
 	<queryString>
-		<![CDATA[]]>
+		<![CDATA[$P!{STRSQL}]]>
 	</queryString>
 	<field name="NOMBREELEMENTO" class="java.lang.String"/>
 	<field name="SEGMENTOUNSPSC" class="java.lang.String"/>
@@ -85,42 +86,42 @@
 				<textElement>
 					<font fontName="SansSerif" size="11" isBold="true"/>
 				</textElement>
-				<textFieldExpression><![CDATA[NIVEL]]></textFieldExpression>
+				<textFieldExpression><![CDATA["NIVEL"]]></textFieldExpression>
 			</textField>
 			<textField>
 				<reportElement x="0" y="60" width="100" height="20" uuid="14d76777-4475-47a3-b05b-4e773d9e0fb5"/>
 				<textElement>
 					<font fontName="SansSerif" size="11" isBold="true"/>
 				</textElement>
-				<textFieldExpression><![CDATA[FAMILIA]]></textFieldExpression>
+				<textFieldExpression><![CDATA["FAMILIA"]]></textFieldExpression>
 			</textField>
 			<textField>
 				<reportElement x="0" y="40" width="100" height="20" uuid="b2829650-0ee8-45ec-a975-45add256e12f"/>
 				<textElement>
 					<font fontName="SansSerif" size="11" isBold="true"/>
 				</textElement>
-				<textFieldExpression><![CDATA[SEGMENTO]]></textFieldExpression>
+				<textFieldExpression><![CDATA["SEGMENTO"]]></textFieldExpression>
 			</textField>
 			<textField>
 				<reportElement x="0" y="80" width="100" height="20" uuid="33164dc5-a1b3-4209-90cd-6d077cfe200b"/>
 				<textElement>
 					<font fontName="SansSerif" size="11" isBold="true"/>
 				</textElement>
-				<textFieldExpression><![CDATA[CLASE]]></textFieldExpression>
+				<textFieldExpression><![CDATA["CLASE"]]></textFieldExpression>
 			</textField>
 			<textField>
 				<reportElement x="0" y="100" width="100" height="20" uuid="468cef78-1be6-4a8e-9e4f-9c7f5b3ae356"/>
 				<textElement>
 					<font fontName="SansSerif" size="11" isBold="true"/>
 				</textElement>
-				<textFieldExpression><![CDATA[PRODUCTO]]></textFieldExpression>
+				<textFieldExpression><![CDATA["PRODUCTO"]]></textFieldExpression>
 			</textField>
 			<textField>
 				<reportElement x="221" y="20" width="228" height="20" uuid="1c251f6e-a3d3-48e7-80d7-2ebc9770d7cb"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font fontName="SansSerif" size="11" isBold="true"/>
 				</textElement>
-				<textFieldExpression><![CDATA[NOMBRE]]></textFieldExpression>
+				<textFieldExpression><![CDATA["NOMBRE"]]></textFieldExpression>
 			</textField>
 			<textField>
 				<reportElement x="100" y="20" width="121" height="20" uuid="a2f3f32c-1b1b-45d3-9522-e9e807becf36"/>

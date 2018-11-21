@@ -64,12 +64,14 @@ public class ModalidadController {
         params.put("IMAGEN", "src/main/resources/reports/logo.png");
         //params.put("IMAGEN", "../../../../src/main/resources/reports/logo.png");
         params.put("SISTEMA", "TAURUS");
-        params.put("PROCESO", "1");
-        params.put("SECCION", "1");
+        params.put("PROCESO", "PROCESO " + id);
+        params.put("SECCION", "PALABRA CLAVE 000" + id);
+        params.put("CODIGO", "0001");
+        params.put("VERSION", "1");
+        params.put("FECHAAPROBO", "01/01/2019");
         params.put("NOMBREDOCUMENTO", "ESTUDIOS PREVIOS MINIMA CUANTIA");
-        params.put("STRSQL", "SELECT p.id, "
-                + " p.numero, "
-                + " p.objeto, "
+        params.put("STRSQL", "SELECT p.id codigo, "
+                + " p.numero proceso, "
                 + " p.palabraclave,  "
                 + " f.nombre formadepago,"
                 + " g.nombre garantia,"
@@ -77,11 +79,20 @@ public class ModalidadController {
                 + " FROM PROCESO p,"
                 + " formadepago f,"
                 + " garantia g"
-                + " where p.id = 1 ");
-        params.put("SUBSTRSQL1", "SELECT ID, 'ENTIDAD' ENTIDAD, 'NROPROCESO' NROPROCESO, 'MODALIDAD' MODALIDAD,"
+                + " where p.id = " + id);
+        params.put("SUBSTRSQL1", "SELECT ID, 'NOMBREELEMENTO' NOMBREELEMENTO, "
+                + " 'SEGMENTOUNSPSC' SEGMENTOUNSPSC, "
+                + " 'FAMILIAUNSPSC' FAMILIAUNSPSC, "
+                + " 'CLASEUNSPSC' CLASEUNSPSC,"
+                + " 'PRODUCTOUNSPSC' PRODUCTOUNSPSC,"
+                + " 'SEGMENTONOMBRE' SEGMENTONOMBRE,"
+                + " 'FAMILIANOMBRE' FAMILIANOMBRE,"
+                + " 'CLASENOMBRE' CLASENOMBRE,"
+                + " 'PRODUCTONOMBRE' PRODUCTONOMBRE "
+                + " FROM USUARIO");        
+        params.put("SUBSTRSQL2", "SELECT ID, 'ENTIDAD' ENTIDAD, 'NROPROCESO' NROPROCESO, 'MODALIDAD' MODALIDAD,"
                 + " 'BIENOSERVICIO' BIENOSERVICIO, 20000000 PRESUPUESTOOFICIAL,"
                 + " 9999999 VALORFINAL, 'DIAS' UNIDADDURACION, 12 DURACION FROM USUARIO");
-        params.put("SUBSTRSQL2", "SELECT ID FROM USUARIO");
         /*
                 + " where p.id = " + id + ""
                         + " and p.formadepago_id = f.id"
@@ -101,10 +112,12 @@ public class ModalidadController {
         */
         
         
+        
         String dburl = System.getenv("JDBC_DATABASE_URL");
         String dbdriver = "org.postgresql.Driver";        
         String dbuser = System.getenv("JDBC_DATABASE_USERNAME");
         String dbpass = System.getenv("JDBC_DATABASE_PASSWORD");
+      
         
         
         Class.forName(dbdriver);
