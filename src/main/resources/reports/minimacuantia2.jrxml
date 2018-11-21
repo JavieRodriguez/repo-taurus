@@ -233,7 +233,7 @@
 					<subreportParameterExpression><![CDATA[$P{SUBSTRSQL1}]]></subreportParameterExpression>
 				</subreportParameter>
 				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
-				<subreportExpression><![CDATA["elementos.jasper"]]></subreportExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "/elementos.jasper"]]></subreportExpression>
 			</subreport>
 			<textField>
 				<reportElement x="0" y="145" width="491" height="30" uuid="323d06c4-559a-4032-b2e8-ef5b8bf2b298"/>
@@ -263,7 +263,7 @@
 					<subreportParameterExpression><![CDATA[$P{SUBSTRSQL1}]]></subreportParameterExpression>
 				</subreportParameter>
 				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
-				<subreportExpression><![CDATA["perspectivacomercial.jasper"]]></subreportExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "/perspectivacomercial.jasper"]]></subreportExpression>
 			</subreport>
 		</band>
 	</summary>

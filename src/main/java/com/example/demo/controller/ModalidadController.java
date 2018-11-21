@@ -60,7 +60,7 @@ public class ModalidadController {
 
         //File file = new File("/src/main/resources/reports/logo.png");
         //System.out.println("gg" + file.getAbsolutePath());
-        params.put("SUBREPORTEDIR", "src/main/resources/reports/");
+        params.put("SUBREPORT_DIR", "src/main/resources/reports");
         params.put("IMAGEN", "src/main/resources/reports/logo.png");
         //params.put("IMAGEN", "../../../../src/main/resources/reports/logo.png");
         params.put("SISTEMA", "TAURUS");
