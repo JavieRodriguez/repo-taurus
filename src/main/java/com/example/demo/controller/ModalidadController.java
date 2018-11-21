@@ -79,7 +79,10 @@ public class ModalidadController {
                 + " FROM PROCESO p,"
                 + " formadepago f,"
                 + " garantia g"
-                + " where p.id = " + id);
+                + " where "
+                + " p.formadepago_id = f.id"
+                + " and p.garantia_id = g.id "
+                + " and p.id = " + id);
         params.put("SUBSTRSQL1", "SELECT ID, 'NOMBREELEMENTO' NOMBREELEMENTO, "
                 + " 'SEGMENTOUNSPSC' SEGMENTOUNSPSC, "
                 + " 'FAMILIAUNSPSC' FAMILIAUNSPSC, "
